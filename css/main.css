@@ -1,0 +1,41 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+    height: 100vmin;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: gray;
+}
+
+header {
+    font-family: 'Libre Barcode 39 Text';
+    font-size: 11.7vmin;
+    margin: 3vmin 0 3vmin 0;
+}
+
+section {
+    display:grid;
+    grid-template-columns: repeat(20, 3vmin);
+    grid-template-rows: repeat(20, 3vmin);
+    gap: 0;
+    margin: 0 0 3vmin 0;
+    /* border: 1vmin solid black; */
+}
+
+section > div {
+    background-color: lightgray;
+    border-top: .2vmin solid white;
+    border-left: .2vmin solid white;
+    border-right: .2vmin solid darkgray;
+    border-bottom: .2vmin solid darkgray;
+}
+
+button {
+    background-color: gray;
+    box-shadow: 10px 10px 15px red);
+    outline: none;
+}

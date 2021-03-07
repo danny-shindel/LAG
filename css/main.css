@@ -27,15 +27,10 @@ section {
 }
 
 section > div {
-    background-color: lightgray;
-    border-top: .2vmin solid white;
-    border-left: .2vmin solid white;
-    border-right: .2vmin solid darkgray;
-    border-bottom: .2vmin solid darkgray;
+    background-color: rgb(189,189,189);
+    border-top: .4vmin solid white;
+    border-left: .4vmin solid white;
+    border-right: .4vmin solid rgb(123,123,123);
+    border-bottom: .4vmin solid rgb(123,123,123);
 }
 
-button {
-    background-color: gray;
-    box-shadow: 10px 10px 15px red);
-    outline: none;
-}

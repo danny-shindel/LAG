@@ -180,20 +180,22 @@ function render(){
     board.forEach(function(object, index) {
        const cell = document.getElementById(`b${index}`);
        cell.textContent = object.adjMines
+       cell.style.color = 'transparent'
     })
-    board.forEach(function(object, index) {
-       const cell = document.getElementById(`b${index}`);
-       if (object.mine === true){
-           cell.style.backgroundColor = 'red';
-       } else {
-           cell.style.backgroundColor = 'blue';
-       }
-    })
+    // board.forEach(function(object, index) {
+    //    const cell = document.getElementById(`b${index}`);
+    //    if (object.mine === true){
+    //        cell.style.backgroundColor = 'red';
+    //    } else {
+    //        cell.style.backgroundColor = 'blue';
+    //    }
+    // })
     board.forEach(function (object, index) {
         const cell = document.getElementById(`b${index}`);
         if (object.revealed === true){
             cell.style.border = '.1vmin solid rgb(123,123,123)'
             cell.style.backgroundColor = 'rgb(189, 189, 189)'
+            cell.style.color = 'white'
         } else if (object.revealed === false && object.flagged === true){
             cell.style.backgroundColor = 'orange'
         }

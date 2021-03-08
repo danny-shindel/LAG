@@ -1,10 +1,4 @@
 /*----- constants -----*/
-const numColor = {
-    '1': 'blue',
-    '2': 'green',
-    '3': 'red',
-    '4': 'darkblue',
-}
 
 /*----- app's state (variables) -----*/
 let board, winner;
@@ -21,12 +15,14 @@ document.querySelector('section > div')
 init();
 
 function init(){
-    board = new Array(400).fill().map(u => ({mine: false, adjMines: 0, revealed: false, flagged: false}));
+    board = new Array(400).fill().map(u => ({mine: false, adjMines: 0, revealed: false, flagged: false, boom: false}));
     setMines(50);
     setAdj();
+    winner = null;
     console.log(board);
-    render()
+    render();
 }
+
 function setMines(num){
     let idx;
     while (num>0) {
@@ -159,9 +155,30 @@ function setAdj(){
 
 function clickCell(evt){
     const idx = cellEl.indexOf(evt.target);
+    if (winner) return;
     if (board[idx] === undefined) return;
-    board[idx].revealed = true;
+    if (board[idx].mine === true){
+        board.forEach(function (object, index) {
+            if (board[index].mine === true) {
+                board[index].revealed = true;
+            }
+        })
+        board[idx].boom = true;
+
+    } else {
+        board[idx].revealed = true;
+    }
+    winner = getWinner();
     render();
+    console.log(winner)
+}
+
+function getWinner(){
+    let winner = null
+    let lose = board.some(cell => cell.boom === true);
+    if (lose === true) return 2;
+    let win = board.filter(cell => cell.revealed === false);
+    if (win.length <= 50) return 1;
 }
 
 function flagCell(evt){
@@ -177,27 +194,39 @@ function flagCell(evt){
 }
 
 function render(){
-    board.forEach(function(object, index) {
-       const cell = document.getElementById(`b${index}`);
-       cell.textContent = object.adjMines
-       cell.style.color = 'transparent'
-    })
-    // board.forEach(function(object, index) {
-    //    const cell = document.getElementById(`b${index}`);
-    //    if (object.mine === true){
-    //        cell.style.backgroundColor = 'red';
-    //    } else {
-    //        cell.style.backgroundColor = 'blue';
-    //    }
-    // })
     board.forEach(function (object, index) {
         const cell = document.getElementById(`b${index}`);
+        if (board[index].adjMines === 1 || board[index].adjMines === 2 || board[index].adjMines === 3 || board[index].adjMines === 4 || board[index].adjMines === 5 || board[index].adjMines === 6 || board[index].adjMines === 7 || board[index].adjMines === 8) {
+            cell.textContent = object.adjMines
+        }
         if (object.revealed === true){
             cell.style.border = '.1vmin solid rgb(123,123,123)'
             cell.style.backgroundColor = 'rgb(189, 189, 189)'
-            cell.style.color = 'white'
+                if (object.adjMines === 1){
+                    cell.style.color = 'blue';
+                } else if (object.adjMines === 2){
+                    cell.style.color = 'green';
+                } else if (object.adjMines === 3){
+                    cell.style.color = 'red'
+                } else if (object.adjMines === 4){
+                    cell.style.color = 'darkblue'
+                } else if (object.adjMines === 5){
+                    cell.style.color = 'darkred'
+                } else if (object.adjMines === 6) {
+                    cell.style.color = 'rgb(1,130,128)'
+                } else if (object.adjMines === 7) {
+                    cell.style.color = 'black'
+                } else if (object.adjMines === 8) {
+                    cell.style.color = 'gray'
+                } else if (object.mine === true && object.boom === true) {
+                    cell.innerHTML = '<img height="14vmin" src="https://i.imgur.com/NRTUWlT.png">';
+                    cell.style.backgroundColor = 'red';
+                } else if (object.mine === true) {
+                    cell.innerHTML = '<img height="14vmin" src="https://i.imgur.com/NRTUWlT.png">';
+                } else {return}
         } else if (object.revealed === false && object.flagged === true){
             cell.style.backgroundColor = 'orange'
-        }
+        } 
     });
 }
+

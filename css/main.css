@@ -1,3 +1,8 @@
+@font-face{
+    font-family:'digital';
+    src: url("../digital-7.regular.ttf")
+}
+
 * {
   box-sizing: border-box;
 }
@@ -25,43 +30,45 @@ header {
     background-color: rgb(189,189,189);
     width: 60vmin;
     height: 10vmin;
-    border-bottom: .4vmin solid white;
-    border-right: .4vmin solid white;
-    border-left: .4vmin solid rgb(123,123,123);
-    border-top: .4vmin solid rgb(123,123,123);
+    border-top: .4vmin solid white;
+    border-left: .4vmin solid white;
+    border-bottom: .4vmin solid rgb(123,123,123);
+    border-right: .4vmin solid rgb(123,123,123);
     margin: 2vmin 0 3vmin 0;
 }
 
 #bombsholder {
-    background-color: rgb(189,189,189);
+    background-color: white;
     margin-left: 3vmin;
     height: 5vmin;
-    width: 7vmin;
+    width: 9vmin;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 }
 
 #timmerholder {
-    background-color: rgb(189,189,189);
+    background-color: white;
     margin-right: 3vmin;
     height: 5vmin;
-    width: 7vmin;
+    width: 9vmin;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 }
 
 #bombs {
-    font-family: 'Libre Barcode 39 Text';
+    font-family: 'digital';
     color: black;
     font-size: 6vmin;
+    text-align: center;
 }
 
 #timmer {
-    font-family: 'Libre Barcode 39 Text';
+    font-family: 'digital';
     color: black;
     font-size: 6vmin;
+    text-align: center;
 }
 
 #menu > button{
@@ -90,20 +97,6 @@ section {
     /* border: 1vmin solid black; */
 }
 
-/* section > div {
-    background-color: rgb(189,189,189);
-    border-top: .4vmin solid white;
-    border-left: .4vmin solid white;
-    border-right: .4vmin solid rgb(123,123,123);
-    border-bottom: .4vmin solid rgb(123,123,123);
-    color: transparent;
-    font-size: 2vmin;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-} */
-
 .unrevealed {
     background-color: rgb(189,189,189);
     border-top: .4vmin solid white;
@@ -111,11 +104,6 @@ section {
     border-right: .4vmin solid rgb(123,123,123);
     border-bottom: .4vmin solid rgb(123,123,123);
     color: transparent;
-    /* font-size: 2vmin;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold; */
 }
 
 .revealed {

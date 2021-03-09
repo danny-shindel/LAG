@@ -15,7 +15,7 @@ const colorLookup = {
 // }
 
 /*----- app's state (variables) -----*/
-let board, winner, mines;
+let board, winner, mines, timer;
 
 /*----- cached element references -----*/
 const cellEl = [...document.querySelectorAll('#board > div')];
@@ -24,8 +24,14 @@ const buttonEl = document.querySelector('button');
 
 /*----- event listeners -----*/
 document.querySelector('section > div')
-    addEventListener('click', clickCell),
-    addEventListener('contextmenu', flagCell),
+    addEventListener('click', clickCell)
+    addEventListener('contextmenu', flagCell)
+    // addEventListener('mousedown', function(evt){
+    //     buttonEl.innerHTML = '<img height="85%" src="https://i.imgur.com/TPJhyY5.png">'
+    // })
+    // addEventListener('mouseup', function(evt){
+    //     buttonEl.innerHTML = '<img height="85%" src="https://i.imgur.com/iKGK9WJ.png">'
+    // })
 
 buttonEl.addEventListener('click', init)
 
@@ -181,7 +187,7 @@ function clickCell(evt){
     if (board[idx] === undefined) return;
     if (winner) return
     if (board[idx].flagged) return;
-    // if (board.filter(cell => cell.revealed).length === 0) startTimmer();
+    if (board.filter(cell => cell.revealed).length === 0) startTimmer();
     if (board[idx].mine){
         board.forEach(function (object, index) {
             if (object.flagged && object.mine) board[index].revealed = false;
@@ -193,17 +199,18 @@ function clickCell(evt){
         reveal(idx)
     }
     winner = getWinner();
+    if (winner) clearInterval(timer)
     render();
 }
 
-// function startTimmer() {
-//     var sec = 0;
-//     function pad(val) { return val > 9 ? val : "0" + val; }
-//     setInterval(function () {
-//         document.getElementById("timmer").innerHTML = pad(++sec);
-//     }, 1000);
-//     console.log(startTimmer)
-// }
+function startTimmer() {
+    var sec = 0
+    function pad(val) { return val > 9 ? val : "0" + val; }
+    timer = setInterval(function () {
+        document.getElementById("timmer").innerHTML = pad(++sec);
+    }, 1000);
+    console.log(startTimmer)
+}
 
 function reveal(idx) {
     if (board[idx].flagged) return;

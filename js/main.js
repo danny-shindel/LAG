@@ -176,20 +176,29 @@ function clickCell(evt){
     console.log(winner)
 }
 
-function reveal(idx){
+function reveal(idx) {
     board[idx].revealed = true;
-    const test = []
-    // board[idx].flagged = false;
-    if (board[idx].adjMines === 0){
+    board[idx].flagged = false;
+    if (board[idx].adjMines === 0) {
         const neighbors = getNeighbors(idx);
-        neighbors.forEach(function(idx){
-            if (!board[idx].revealed && !board[idx].mine && board[idx].adjMines > 0) board[idx].revealed = true;
-            if (!board[idx].revealed) reveal(idx)
-            else {return}
-        })
+        neighbors.forEach(function (idx) {
+            if (!board[idx].revealed && !board[idx].mine) reveal(idx);
+        });
     }
-    console.log(test)
 }
+
+// function reveal(idx){
+//     board[idx].revealed = true;
+//     // board[idx].flagged = false;
+//     if (board[idx].adjMines === 0){
+//         const neighbors = getNeighbors(idx);
+//         neighbors.forEach(function(idx){
+//             if (!board[idx].revealed && !board[idx].mine && board[idx].adjMines > 0) board[idx].revealed = true;
+//             if (!board[idx].revealed) reveal(idx)
+//             else {return}
+//         })
+//     }
+// }
 
 function getNeighbors(idx){
     const neighbors = [];

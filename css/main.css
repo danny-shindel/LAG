@@ -8,13 +8,74 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: gray;
+    background-color: rgb(222,209,128);
 }
 
 header {
     font-family: 'Libre Barcode 39 Text';
-    font-size: 11.7vmin;
-    margin: 3vmin 0 3vmin 0;
+    font-size: 11.3vmin;
+    margin: 3vmin 0 0 0;
+}
+
+#menu {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(189,189,189);
+    width: 60vmin;
+    height: 10vmin;
+    border-bottom: .4vmin solid white;
+    border-right: .4vmin solid white;
+    border-left: .4vmin solid rgb(123,123,123);
+    border-top: .4vmin solid rgb(123,123,123);
+    margin: 2vmin 0 3vmin 0;
+}
+
+#bombsholder {
+    background-color: rgb(189,189,189);
+    margin-left: 3vmin;
+    height: 5vmin;
+    width: 7vmin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#timmerholder {
+    background-color: rgb(189,189,189);
+    margin-right: 3vmin;
+    height: 5vmin;
+    width: 7vmin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#bombs {
+    font-family: 'Libre Barcode 39 Text';
+    color: black;
+    font-size: 6vmin;
+}
+
+#timmer {
+    font-family: 'Libre Barcode 39 Text';
+    color: black;
+    font-size: 6vmin;
+}
+
+#menu > button{
+    height: 6vmin;
+    width: 6vmin;
+    border-top: .4vmin solid white;
+    border-left: .4vmin solid white;
+    border-right: .4vmin solid rgb(123,123,123);
+    border-bottom: .4vmin solid rgb(123,123,123);
+    background-color: rgb(189,189,189);
+}
+
+#timmer {
+    margin-right: 3vmin;
 }
 
 section {

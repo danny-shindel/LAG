@@ -1,10 +1,11 @@
 /*----- constants -----*/
 
 /*----- app's state (variables) -----*/
-let board, winner;
+let board, winner, mines;
 
 /*----- cached element references -----*/
 const cellEl = [...document.querySelectorAll('#board > div')];
+const bombCountEl = document.getElementById('bombs')
 
 /*----- event listeners -----*/
 document.querySelector('section > div')
@@ -16,7 +17,8 @@ init();
 
 function init(){
     board = new Array(400).fill().map(u => ({mine: false, adjMines: 0, revealed: false, flagged: false, boom: false}));
-    setMines(50);
+    mines = 50;
+    setMines(mines);
     setAdj();
     winner = null;
     console.log(board);
@@ -39,7 +41,7 @@ function setAdj(){
     board.forEach(function(object,index){
         if (index === 0){
             let numAdj = 0
-            if (board[index].mine === true) return;
+            if (board[index].mine) return;
             if (board[index + 1].mine === true)
                 numAdj = numAdj + 1;
             if (board[index + 20].mine === true)
@@ -49,7 +51,7 @@ function setAdj(){
             board[index].adjMines = numAdj;
         } else if (index === 19){
             let numAdj = 0
-            if (board[index].mine === true) return;
+            if (board[index].mine) return;
             if (board[index - 1].mine === true)
                 numAdj = numAdj + 1;
             if (board[index + 20].mine === true)
@@ -59,7 +61,7 @@ function setAdj(){
             board[index].adjMines = numAdj;
         } else if (index === 380){
             let numAdj = 0
-            if (board[index].mine === true) return;
+            if (board[index].mine) return;
             if (board[index - 20].mine === true)
                 numAdj = numAdj + 1;
             if (board[index - 20 + 1].mine === true)
@@ -69,7 +71,7 @@ function setAdj(){
             board[index].adjMines = numAdj;
         } else if (index === 399){
             let numAdj = 0
-            if (board[index].mine === true) return;
+            if (board[index].mine) return;
             if (board[index - 1].mine === true)
                 numAdj = numAdj + 1;
             if (board[index - 20].mine === true)
@@ -79,7 +81,7 @@ function setAdj(){
             board[index].adjMines = numAdj;
         } else if (index - 20 < 0){
             let numAdj = 0;
-            if (board[index].mine === true) return;
+            if (board[index].mine) return;
             if (board[index + 1].mine === true)
                 numAdj = numAdj + 1;
             if (board[index - 1].mine === true)
@@ -93,7 +95,7 @@ function setAdj(){
             board[index].adjMines = numAdj;
         } else if (index + 20 > board.length){
             let numAdj = 0;
-            if (board[index].mine === true) return;
+            if (board[index].mine) return;
             if (board[index + 1].mine === true)
                 numAdj = numAdj + 1;
             if (board[index - 1].mine === true)
@@ -107,7 +109,7 @@ function setAdj(){
             board[index].adjMines = numAdj;
         } else if (index % 20 === 0){
             let numAdj = 0;
-            if (board[index].mine === true) return;
+            if (board[index].mine) return;
             if (board[index + 1].mine === true)
                 numAdj = numAdj + 1;
             if (board[index + 20].mine === true)
@@ -121,7 +123,7 @@ function setAdj(){
             board[index].adjMines = numAdj;
         } else if (index % 20 === 19){
             let numAdj = 0;
-            if (board[index].mine === true) return;
+            if (board[index].mine) return;
             if (board[index - 1].mine === true)
                 numAdj = numAdj + 1;
             if (board[index + 20].mine === true)
@@ -135,7 +137,7 @@ function setAdj(){
             board[index].adjMines = numAdj;
         } else {
             let numAdj = 0;
-            if (board[index].mine === true) return;
+            if (board[index].mine) return;
             if (board[index + 1].mine === true)
                 numAdj = numAdj + 1;
             if (board[index - 1].mine === true)
@@ -159,13 +161,12 @@ function setAdj(){
 
 function clickCell(evt){
     const idx = cellEl.indexOf(evt.target);
-    if (winner) return;
+    if (winner) return
     if (board[idx] === undefined) return;
+    if (board.filter(cell => cell.revealed).length === 0) startTimmer();
     if (board[idx].mine){
         board.forEach(function (object, index) {
-            if (board[index].mine === true) {
-                board[index].revealed = true;
-            }
+            if (board[index].mine) board[index].revealed = true;
         });
         board[idx].boom = true;
     } else { 
@@ -173,7 +174,15 @@ function clickCell(evt){
     }
     winner = getWinner();
     render();
-    console.log(winner)
+}
+
+function startTimmer() {
+    var sec = 0;
+    function pad(val) { return val > 9 ? val : "0" + val; }
+    setInterval(function () {
+        document.getElementById("timmer").innerHTML = pad(++sec);
+    }, 1000);
+    console.log(startTimmer)
 }
 
 function reveal(idx) {
@@ -186,19 +195,6 @@ function reveal(idx) {
         });
     }
 }
-
-// function reveal(idx){
-//     board[idx].revealed = true;
-//     // board[idx].flagged = false;
-//     if (board[idx].adjMines === 0){
-//         const neighbors = getNeighbors(idx);
-//         neighbors.forEach(function(idx){
-//             if (!board[idx].revealed && !board[idx].mine && board[idx].adjMines > 0) board[idx].revealed = true;
-//             if (!board[idx].revealed) reveal(idx)
-//             else {return}
-//         })
-//     }
-// }
 
 function getNeighbors(idx){
     const neighbors = [];
@@ -271,4 +267,5 @@ function render(){
             cell.style.backgroundColor = 'rgb(189, 189, 189)'
         }
     });
+    bombCountEl.textContent = mines - board.filter(cell => cell.flagged).length
 }

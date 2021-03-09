@@ -23,17 +23,40 @@ const bombCountEl = document.getElementById('bombs');
 const buttonEl = document.querySelector('button');
 
 /*----- event listeners -----*/
-document.querySelector('section > div')
-    addEventListener('click', clickCell)
-    addEventListener('contextmenu', flagCell)
+buttonEl.addEventListener('click', init);
+
+document.querySelector('#board').addEventListener('click', clickCell);
+
+document.querySelector('#board').addEventListener('contextmenu', flagCell);
+
+document.querySelector('#board').addEventListener('mousedown', function(evt) {
+        console.log('helloworld')
+        const idx = cellEl.indexOf(evt.target);
+        if (!board[idx]) return;
+        else if (!board[idx].revealed) buttonEl.innerHTML = '<img height="85%" src="https://i.imgur.com/TPJhyY5.png">'
+        else return;
+    })
+
+document.querySelector('#board').addEventListener('mouseup', function (evt) {
+        buttonEl.innerHTML = '<img height="85%" src="https://i.imgur.com/iKGK9WJ.png">'
+    })
+
+
+
+    // .addEventListener('contextmenu', flagCell)
     // addEventListener('mousedown', function(evt){
-    //     buttonEl.innerHTML = '<img height="85%" src="https://i.imgur.com/TPJhyY5.png">'
+    //     const idx = cellEl.indexOf(evt.target);
+    //     if (!board[idx]) return;
+    //     else if (!board[idx].revealed)
+    //         buttonEl.innerHTML = '<img height="85%" src="https://i.imgur.com/TPJhyY5.png">'
+    //     else return;
     // })
     // addEventListener('mouseup', function(evt){
     //     buttonEl.innerHTML = '<img height="85%" src="https://i.imgur.com/iKGK9WJ.png">'
     // })
 
-buttonEl.addEventListener('click', init)
+
+
 
 /*----- functions -----*/
 init();
@@ -273,13 +296,23 @@ function render(){
             cell.removeAttribute('style');
             cell.style.color = colorLookup[object.adjMines];
             if (object.mine){
-                if (object.flagged) cell.style.backgroundColor = 'green', cell.innerHTML = '<img height="80%" src="https://i.imgur.com/NRTUWlT.png">';
+                if (object.flagged) cell.style.backgroundColor = 'red', cell.innerHTML = '<img height="80%" src="https://i.imgur.com/NRTUWlT.png">';
                 else if (object.boom) cell.style.backgroundColor = 'red', cell.innerHTML = '<img height="80%" src="https://i.imgur.com/NRTUWlT.png">';
                 else cell.innerHTML = '<img height="80%" src="https://i.imgur.com/NRTUWlT.png">';
             }
         }
     });
-    bombCountEl.textContent = mines - board.filter(cell => cell.flagged).length
+    if (mines - board.filter(cell => cell.flagged).length > 99){
+        bombCountEl.textContent = mines - board.filter(cell => cell.flagged).length
+    } else if (mines - board.filter(cell => cell.flagged).length < 99 && mines - board.filter(cell => cell.flagged).length > 10){
+        bombCountEl.textContent = `0${mines - board.filter(cell => cell.flagged).length}`
+    } else if (mines - board.filter(cell => cell.flagged).length < 10 && mines - board.filter(cell => cell.flagged).length > 0){
+        bombCountEl.textContent = `00${mines - board.filter(cell => cell.flagged).length}`
+    } else if (mines - board.filter(cell => cell.flagged).length === 0){
+        bombCountEl.textContent = `00${mines - board.filter(cell => cell.flagged).length}`
+    } else if (mines - board.filter(cell => cell.flagged).length < 0){
+        bombCountEl.textContent = `-0${(mines - board.filter(cell => cell.flagged).length) * -1}`
+    }
     if (winner === null) buttonEl.innerHTML = '<img height="85%" src="https://i.imgur.com/iKGK9WJ.png">'
     else if (winner === 1) buttonEl.innerHTML = '<img height="85%" src="https://i.imgur.com/Zd8eUHQ.png">'
     else if (winner === 2) buttonEl.innerHTML = '<img height="85%" src="https://i.imgur.com/TTxdJXR.png">'

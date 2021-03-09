@@ -38,37 +38,46 @@ header {
 }
 
 #bombsholder {
-    background-color: white;
+    background-color: black;
     margin-left: 3vmin;
     height: 5vmin;
-    width: 9vmin;
+    width: 8.3vmin;
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: flex-start;
+    border-top: .4vmin solid white;
+    border-left: .4vmin solid white;
+    border-bottom: .4vmin solid rgb(123,123,123);
+    border-right: .4vmin solid rgb(123,123,123);
 }
 
 #timmerholder {
-    background-color: white;
+    background-color: black;
     margin-right: 3vmin;
     height: 5vmin;
-    width: 9vmin;
+    width: 8.3vmin;
     display: flex;
+    flex-direction: row;
     justify-content: center;
-    align-items: flex-start;
+    border-top: .4vmin solid white;
+    border-left: .4vmin solid white;
+    border-bottom: .4vmin solid rgb(123,123,123);
+    border-right: .4vmin solid rgb(123,123,123);
 }
 
 #bombs {
     font-family: 'digital';
-    color: black;
-    font-size: 6vmin;
-    text-align: center;
+    color: white;
+    font-size: 5vmin;
+    margin-top:.1vmin;
 }
 
 #timmer {
     font-family: 'digital';
-    color: black;
-    font-size: 6vmin;
-    text-align: center;
+    color: white;
+    font-size: 5vmin;
+    margin-top:.1vmin;
 }
 
 #menu > button{
@@ -82,10 +91,6 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-#timmer {
-    margin-right: 3vmin;
 }
 
 section {

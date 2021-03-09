@@ -67,11 +67,14 @@ header {
 #menu > button{
     height: 6vmin;
     width: 6vmin;
-    border-top: .4vmin solid white;
-    border-left: .4vmin solid white;
-    border-right: .4vmin solid rgb(123,123,123);
-    border-bottom: .4vmin solid rgb(123,123,123);
+    border-top: .6vmin solid white;
+    border-left: .6vmin solid white;
+    border-right: .6vmin solid rgb(123,123,123);
+    border-bottom: .6vmin solid rgb(123,123,123);
     background-color: rgb(189,189,189);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #timmer {
@@ -87,7 +90,7 @@ section {
     /* border: 1vmin solid black; */
 }
 
-section > div {
+/* section > div {
     background-color: rgb(189,189,189);
     border-top: .4vmin solid white;
     border-left: .4vmin solid white;
@@ -99,5 +102,30 @@ section > div {
     justify-content: center;
     align-items: center;
     font-weight: bold;
+} */
+
+.unrevealed {
+    background-color: rgb(189,189,189);
+    border-top: .4vmin solid white;
+    border-left: .4vmin solid white;
+    border-right: .4vmin solid rgb(123,123,123);
+    border-bottom: .4vmin solid rgb(123,123,123);
+    color: transparent;
+    /* font-size: 2vmin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold; */
+}
+
+.revealed {
+    border: .1vmin solid rgb(123,123,123);
+    background-color: rgb(189, 189, 189);
+    font-size: 2vmin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 2vmin;
 }
 

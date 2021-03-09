@@ -1,16 +1,33 @@
 /*----- constants -----*/
+const colorLookup = {
+    1: 'blue',
+    2: 'green',
+    3: 'red',
+    4: 'darkblue',
+    5: 'darkred',
+    6: 'rgb(1,130,128)',
+    7: 'black',
+    8: 'gray',
+}
+
+// const styleLookup = {
+//     true: ''
+// }
 
 /*----- app's state (variables) -----*/
 let board, winner, mines;
 
 /*----- cached element references -----*/
 const cellEl = [...document.querySelectorAll('#board > div')];
-const bombCountEl = document.getElementById('bombs')
+const bombCountEl = document.getElementById('bombs');
+const buttonEl = document.querySelector('button');
 
 /*----- event listeners -----*/
 document.querySelector('section > div')
     addEventListener('click', clickCell),
-    addEventListener('contextmenu', flagCell)
+    addEventListener('contextmenu', flagCell),
+
+buttonEl.addEventListener('click', init)
 
 /*----- functions -----*/
 init();
@@ -161,12 +178,15 @@ function setAdj(){
 
 function clickCell(evt){
     const idx = cellEl.indexOf(evt.target);
-    if (winner) return
     if (board[idx] === undefined) return;
-    if (board.filter(cell => cell.revealed).length === 0) startTimmer();
+    if (winner) return
+    if (board[idx].flagged) return;
+    // if (board.filter(cell => cell.revealed).length === 0) startTimmer();
     if (board[idx].mine){
         board.forEach(function (object, index) {
-            if (board[index].mine) board[index].revealed = true;
+            if (object.flagged && object.mine) board[index].revealed = false;
+            else if (object.flagged && !object.mine) board[index].mine = true, board[index].revealed = true;
+            else if (object.mine) board[index].revealed = true;
         });
         board[idx].boom = true;
     } else { 
@@ -176,18 +196,18 @@ function clickCell(evt){
     render();
 }
 
-function startTimmer() {
-    var sec = 0;
-    function pad(val) { return val > 9 ? val : "0" + val; }
-    setInterval(function () {
-        document.getElementById("timmer").innerHTML = pad(++sec);
-    }, 1000);
-    console.log(startTimmer)
-}
+// function startTimmer() {
+//     var sec = 0;
+//     function pad(val) { return val > 9 ? val : "0" + val; }
+//     setInterval(function () {
+//         document.getElementById("timmer").innerHTML = pad(++sec);
+//     }, 1000);
+//     console.log(startTimmer)
+// }
 
 function reveal(idx) {
+    if (board[idx].flagged) return;
     board[idx].revealed = true;
-    board[idx].flagged = false;
     if (board[idx].adjMines === 0) {
         const neighbors = getNeighbors(idx);
         neighbors.forEach(function (idx) {
@@ -233,39 +253,27 @@ function flagCell(evt){
 function render(){
     board.forEach(function (object, index) {
         const cell = document.getElementById(`b${index}`);
-        if (board[index].adjMines === 1 || board[index].adjMines === 2 || board[index].adjMines === 3 || board[index].adjMines === 4 || board[index].adjMines === 5 || board[index].adjMines === 6 || board[index].adjMines === 7 || board[index].adjMines === 8) {
-            cell.textContent = object.adjMines
-        }
-        if (object.revealed){
-            cell.style.border = '.1vmin solid rgb(123,123,123)'
-            cell.style.backgroundColor = 'rgb(189, 189, 189)'
-                if (object.adjMines === 1){
-                    cell.style.color = 'blue';
-                } else if (object.adjMines === 2){
-                    cell.style.color = 'green';
-                } else if (object.adjMines === 3){
-                    cell.style.color = 'red'
-                } else if (object.adjMines === 4){
-                    cell.style.color = 'darkblue'
-                } else if (object.adjMines === 5){
-                    cell.style.color = 'darkred'
-                } else if (object.adjMines === 6) {
-                    cell.style.color = 'rgb(1,130,128)'
-                } else if (object.adjMines === 7) {
-                    cell.style.color = 'black'
-                } else if (object.adjMines === 8) {
-                    cell.style.color = 'gray'
-                } else if (object.mine && object.boom) {
-                    cell.innerHTML = '<img height="80%" src="https://i.imgur.com/NRTUWlT.png">';
-                    cell.style.backgroundColor = 'red';
-                } else if (object.mine === true) {
-                    cell.innerHTML = '<img height="80%" src="https://i.imgur.com/NRTUWlT.png">';
-                } else {return}
-        } else if (!object.revealed && object.flagged === true){
-            cell.style.backgroundColor = 'orange'
-        } else if (object.revealed === false && object.flagged === false){
-            cell.style.backgroundColor = 'rgb(189, 189, 189)'
+        cell.innerHTML = '';
+        cell.textContent = '';
+        if (board[index].adjMines) cell.textContent = object.adjMines;
+        if (!object.revealed){
+            cell.classList.add('unrevealed');
+            cell.classList.replace('revealed','unrevealed');
+            if (object.flagged) cell.style.backgroundColor = 'orange'
+            else if (!object.flagged) cell.removeAttribute('style');
+        } else if (object.revealed){
+            cell.classList.replace('unrevealed','revealed');
+            cell.removeAttribute('style');
+            cell.style.color = colorLookup[object.adjMines];
+            if (object.mine){
+                if (object.flagged) cell.style.backgroundColor = 'green', cell.innerHTML = '<img height="80%" src="https://i.imgur.com/NRTUWlT.png">';
+                else if (object.boom) cell.style.backgroundColor = 'red', cell.innerHTML = '<img height="80%" src="https://i.imgur.com/NRTUWlT.png">';
+                else cell.innerHTML = '<img height="80%" src="https://i.imgur.com/NRTUWlT.png">';
+            }
         }
     });
     bombCountEl.textContent = mines - board.filter(cell => cell.flagged).length
+    if (winner === null) buttonEl.innerHTML = '<img height="85%" src="https://i.imgur.com/iKGK9WJ.png">'
+    else if (winner === 1) buttonEl.innerHTML = '<img height="85%" src="https://i.imgur.com/Zd8eUHQ.png">'
+    else if (winner === 2) buttonEl.innerHTML = '<img height="85%" src="https://i.imgur.com/TTxdJXR.png">'
 }

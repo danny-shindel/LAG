@@ -39,6 +39,7 @@ function setAdj(){
     board.forEach(function(object,index){
         if (index === 0){
             let numAdj = 0
+            if (board[index].mine === true) return;
             if (board[index + 1].mine === true)
                 numAdj = numAdj + 1;
             if (board[index + 20].mine === true)
@@ -48,6 +49,7 @@ function setAdj(){
             board[index].adjMines = numAdj;
         } else if (index === 19){
             let numAdj = 0
+            if (board[index].mine === true) return;
             if (board[index - 1].mine === true)
                 numAdj = numAdj + 1;
             if (board[index + 20].mine === true)
@@ -57,6 +59,7 @@ function setAdj(){
             board[index].adjMines = numAdj;
         } else if (index === 380){
             let numAdj = 0
+            if (board[index].mine === true) return;
             if (board[index - 20].mine === true)
                 numAdj = numAdj + 1;
             if (board[index - 20 + 1].mine === true)
@@ -66,6 +69,7 @@ function setAdj(){
             board[index].adjMines = numAdj;
         } else if (index === 399){
             let numAdj = 0
+            if (board[index].mine === true) return;
             if (board[index - 1].mine === true)
                 numAdj = numAdj + 1;
             if (board[index - 20].mine === true)
@@ -157,20 +161,48 @@ function clickCell(evt){
     const idx = cellEl.indexOf(evt.target);
     if (winner) return;
     if (board[idx] === undefined) return;
-    if (board[idx].mine === true){
+    if (board[idx].mine){
         board.forEach(function (object, index) {
             if (board[index].mine === true) {
                 board[index].revealed = true;
             }
-        })
+        });
         board[idx].boom = true;
-
-    } else {
-        board[idx].revealed = true;
+    } else { 
+        reveal(idx)
     }
     winner = getWinner();
     render();
     console.log(winner)
+}
+
+function reveal(idx){
+    board[idx].revealed = true;
+    const test = []
+    // board[idx].flagged = false;
+    if (board[idx].adjMines === 0){
+        const neighbors = getNeighbors(idx);
+        neighbors.forEach(function(idx){
+            if (!board[idx].revealed && !board[idx].mine && board[idx].adjMines > 0) board[idx].revealed = true;
+            if (!board[idx].revealed) reveal(idx)
+            else {return}
+        })
+    }
+    console.log(test)
+}
+
+function getNeighbors(idx){
+    const neighbors = [];
+    if (idx % 20 !== 0 && (idx-20) >= 0) neighbors.push(idx - 20 - 1); //northwest
+    if ((idx-20) >= 0) neighbors.push(idx-20); //north
+    if (idx % 20 <19 && (idx-20) >= 0) neighbors.push(idx - 20 + 1); //northeast
+    if (idx % 20 < 19) neighbors.push(idx + 1); //east
+    if (idx % 20 < 19 && (idx + 20) < board.length) neighbors.push(idx + 20 + 1) //southeast
+    if ((idx + 20) < board.length) neighbors.push(idx + 20) //south
+    if ((idx + 20) < board.length && idx % 20 !== 0) neighbors.push(idx + 20 -1) //southwest
+    if (idx % 20 !== 0) neighbors.push(idx - 1) //west
+    // console.log(neighbors)
+    return neighbors
 }
 
 function getWinner(){
@@ -199,7 +231,7 @@ function render(){
         if (board[index].adjMines === 1 || board[index].adjMines === 2 || board[index].adjMines === 3 || board[index].adjMines === 4 || board[index].adjMines === 5 || board[index].adjMines === 6 || board[index].adjMines === 7 || board[index].adjMines === 8) {
             cell.textContent = object.adjMines
         }
-        if (object.revealed === true){
+        if (object.revealed){
             cell.style.border = '.1vmin solid rgb(123,123,123)'
             cell.style.backgroundColor = 'rgb(189, 189, 189)'
                 if (object.adjMines === 1){
@@ -218,15 +250,16 @@ function render(){
                     cell.style.color = 'black'
                 } else if (object.adjMines === 8) {
                     cell.style.color = 'gray'
-                } else if (object.mine === true && object.boom === true) {
-                    cell.innerHTML = '<img height="14vmin" src="https://i.imgur.com/NRTUWlT.png">';
+                } else if (object.mine && object.boom) {
+                    cell.innerHTML = '<img height="80%" src="https://i.imgur.com/NRTUWlT.png">';
                     cell.style.backgroundColor = 'red';
                 } else if (object.mine === true) {
-                    cell.innerHTML = '<img height="14vmin" src="https://i.imgur.com/NRTUWlT.png">';
+                    cell.innerHTML = '<img height="80%" src="https://i.imgur.com/NRTUWlT.png">';
                 } else {return}
-        } else if (object.revealed === false && object.flagged === true){
+        } else if (!object.revealed && object.flagged === true){
             cell.style.backgroundColor = 'orange'
-        } 
+        } else if (object.revealed === false && object.flagged === false){
+            cell.style.backgroundColor = 'rgb(189, 189, 189)'
+        }
     });
 }
-

@@ -109,6 +109,9 @@ section {
     border-right: .4vmin solid rgb(123,123,123);
     border-bottom: .4vmin solid rgb(123,123,123);
     color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .revealed {

@@ -15,7 +15,7 @@ const colorLookup = {
 // }
 
 /*----- app's state (variables) -----*/
-let board, winner, mines, timer;
+let board, winner, mines, timer, hold;
 
 /*----- cached element references -----*/
 const cellEl = [...document.querySelectorAll('#board > div')];
@@ -29,37 +29,23 @@ document.querySelector('#board').addEventListener('click', clickCell);
 
 document.querySelector('#board').addEventListener('contextmenu', flagCell);
 
-document.querySelector('#board').addEventListener('mousedown', function(evt) {
-        console.log('helloworld')
-        const idx = cellEl.indexOf(evt.target);
-        if (!board[idx]) return;
-        else if (!board[idx].revealed) buttonEl.innerHTML = '<img height="85%" src="https://i.imgur.com/TPJhyY5.png">'
-        else return;
-    })
+document.querySelector('#board').addEventListener('mousedown', holdOn); 
 
-document.querySelector('#board').addEventListener('mouseup', function (evt) {
-        buttonEl.innerHTML = '<img height="85%" src="https://i.imgur.com/iKGK9WJ.png">'
-    })
-
-
-
-    // .addEventListener('contextmenu', flagCell)
-    // addEventListener('mousedown', function(evt){
-    //     const idx = cellEl.indexOf(evt.target);
-    //     if (!board[idx]) return;
-    //     else if (!board[idx].revealed)
-    //         buttonEl.innerHTML = '<img height="85%" src="https://i.imgur.com/TPJhyY5.png">'
-    //     else return;
-    // })
-    // addEventListener('mouseup', function(evt){
-    //     buttonEl.innerHTML = '<img height="85%" src="https://i.imgur.com/iKGK9WJ.png">'
-    // })
-
-
-
+document.querySelector('#board').addEventListener('mouseup', holdOn); 
 
 /*----- functions -----*/
 init();
+
+function holdOn(evt){
+    console.log(hold)
+    const idx = cellEl.indexOf(evt.target);
+    if (!hold) return hold=true
+    if (!board[idx]) return;
+    else if (!board[idx].revealed) hold = false;
+    else return;
+    console.log(hold)
+    render();
+}
 
 function init(){
     board = new Array(400).fill().map(u => ({mine: false, adjMines: 0, revealed: false, flagged: false, boom: false}));
@@ -68,6 +54,8 @@ function init(){
     setAdj();
     winner = null;
     console.log(board);
+    clearInterval(timer);
+    hold = true
     render();
 }
 
@@ -252,12 +240,11 @@ function getNeighbors(idx){
     if ((idx-20) >= 0) neighbors.push(idx-20); //north
     if (idx % 20 <19 && (idx-20) >= 0) neighbors.push(idx - 20 + 1); //northeast
     if (idx % 20 < 19) neighbors.push(idx + 1); //east
-    if (idx % 20 < 19 && (idx + 20) < board.length) neighbors.push(idx + 20 + 1) //southeast
-    if ((idx + 20) < board.length) neighbors.push(idx + 20) //south
-    if ((idx + 20) < board.length && idx % 20 !== 0) neighbors.push(idx + 20 -1) //southwest
-    if (idx % 20 !== 0) neighbors.push(idx - 1) //west
-    // console.log(neighbors)
-    return neighbors
+    if (idx % 20 < 19 && (idx + 20) < board.length) neighbors.push(idx + 20 + 1); //southeast
+    if ((idx + 20) < board.length) neighbors.push(idx + 20); //south
+    if ((idx + 20) < board.length && idx % 20 !== 0) neighbors.push(idx + 20 -1); //southwest
+    if (idx % 20 !== 0) neighbors.push(idx - 1); //west
+    return neighbors;
 }
 
 function getWinner(){
@@ -289,7 +276,7 @@ function render(){
         if (!object.revealed){
             cell.classList.add('unrevealed');
             cell.classList.replace('revealed','unrevealed');
-            if (object.flagged) cell.style.backgroundColor = 'orange'
+            if (object.flagged) cell.innerHTML = '<img height="130%" src="https://i.imgur.com/NwO9zC7.png">'
             else if (!object.flagged) cell.removeAttribute('style');
         } else if (object.revealed){
             cell.classList.replace('unrevealed','revealed');
@@ -313,7 +300,8 @@ function render(){
     } else if (mines - board.filter(cell => cell.flagged).length < 0){
         bombCountEl.textContent = `-0${(mines - board.filter(cell => cell.flagged).length) * -1}`
     }
-    if (winner === null) buttonEl.innerHTML = '<img height="85%" src="https://i.imgur.com/iKGK9WJ.png">'
-    else if (winner === 1) buttonEl.innerHTML = '<img height="85%" src="https://i.imgur.com/Zd8eUHQ.png">'
+    if (hold) buttonEl.innerHTML = '<img height="85%" src="https://i.imgur.com/iKGK9WJ.png">'
+    else if (!hold) buttonEl.innerHTML = '<img height="85%" src="https://i.imgur.com/TPJhyY5.png">'
+    if (winner === 1) buttonEl.innerHTML = '<img height="85%" src="https://i.imgur.com/Zd8eUHQ.png">'
     else if (winner === 2) buttonEl.innerHTML = '<img height="85%" src="https://i.imgur.com/TTxdJXR.png">'
-}
+} 

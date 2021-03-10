@@ -60,7 +60,7 @@ header {
 }
 
 #bombsholder > div > img{
-    margin-top: .7vmin;
+    margin-top: .5vmin;
     height: 100%;
     width: 100%;
 }
@@ -68,30 +68,33 @@ header {
 #timmerholder {
     background-color: black;
     margin-right: 3vmin;
-    height: 5vmin;
-    width: 8.3vmin;
+    height: 4.8vmin;
+    width: 8.1vmin;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
     border-top: .4vmin solid white;
     border-left: .4vmin solid white;
     border-bottom: .4vmin solid rgb(123,123,123);
     border-right: .4vmin solid rgb(123,123,123);
 }
 
-/* #bombs {
-    font-family: 'digital';
-    color: white;
-    font-size: 5vmin;
-    margin-top:.1vmin;
-} */
-
-#timmer {
-    font-family: 'digital';
-    color: white;
-    font-size: 5vmin;
-    margin-top:.1vmin;
+#timmerholder > div{
+    padding: .3vmin;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
+
+#timmerholder > div > img{
+    margin-top: .5vmin;
+    height: 100%;
+    width: 100%;
+}
+
+
+
 
 #menu > button{
     height: 6vmin;

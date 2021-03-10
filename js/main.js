@@ -218,7 +218,13 @@ function startTimmer() {
     var sec = 0
     function pad(val) { return val > 9 ? val : "0" + val; }
     timer = setInterval(function () {
-        document.getElementById("timmer").innerHTML = pad(++sec);
+        pad(++sec)
+        let array = Array.from(String(`${sec}`.padStart(3, '0')), Number);
+        array.forEach(function (number, index) {
+            const timerCell = document.getElementById(`tnum${index}`);
+            timerCell.innerHTML = numLookup[number];
+        })
+        console.log(array)
     }, 1000);
 }
 

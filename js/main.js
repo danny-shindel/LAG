@@ -243,6 +243,7 @@ function getWinner(){
 }
 
 function flagCell(evt){
+    hold = true;
     if (winner) return
     const idx = cellEl.indexOf(evt.target);
     const idxp = cellEl.indexOf(evt.target.parentElement);
@@ -286,7 +287,7 @@ function render(){
             cell.removeAttribute('style');
             cell.style.color = colorLookup[object.adjMines];
             if (object.mine){
-                if (object.flagged) cell.style.backgroundColor = 'red', cell.innerHTML = '<img height="80%" src="https://i.imgur.com/NRTUWlT.png">';
+                if (object.flagged) cell.innerHTML = '<img height="80%" src="https://i.imgur.com/M8yFgAA.png">';
                 else if (object.boom) cell.style.backgroundColor = 'red', cell.innerHTML = '<img height="80%" src="https://i.imgur.com/NRTUWlT.png">';
                 else cell.innerHTML = '<img height="80%" src="https://i.imgur.com/NRTUWlT.png">';
             }

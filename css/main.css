@@ -18,8 +18,17 @@ body {
 
 header {
     font-family: 'Libre Barcode 39 Text';
-    font-size: 11.3vmin;
-    margin: 3vmin 0 0 0;
+    font-size: 12.1vmin;
+    margin: 3vmin 0 3vmin 0;
+}
+
+#border {
+    padding: 2vmin;
+    background-color: rgb(189,189,189);
+    border-top: .4vmin solid white;
+    border-left: .4vmin solid white;
+    border-bottom: .4vmin solid rgb(123,123,123);
+    border-right: .4vmin solid rgb(123,123,123);
 }
 
 #menu {
@@ -30,11 +39,11 @@ header {
     background-color: rgb(189,189,189);
     width: 60vmin;
     height: 10vmin;
-    border-top: .4vmin solid white;
-    border-left: .4vmin solid white;
-    border-bottom: .4vmin solid rgb(123,123,123);
-    border-right: .4vmin solid rgb(123,123,123);
-    margin: 2vmin 0 3vmin 0;
+    border-bottom: .4vmin solid white;
+    border-right: .4vmin solid white;
+    border-top: .4vmin solid rgb(123,123,123);
+    border-left: .4vmin solid rgb(123,123,123);
+    margin: 0 0 2vmin 0;
 }
 
 #bombsholder {
@@ -93,9 +102,6 @@ header {
     width: 100%;
 }
 
-
-
-
 #menu > button{
     height: 6vmin;
     width: 6vmin;
@@ -109,12 +115,18 @@ header {
     align-items: center;
 }
 
+#boardborder {
+    border-bottom: .4vmin solid white;
+    border-right: .4vmin solid white;
+    border-top: .4vmin solid rgb(123,123,123);
+    border-left: .4vmin solid rgb(123,123,123);
+}
+
 section {
     display:grid;
     grid-template-columns: repeat(20, 3vmin);
     grid-template-rows: repeat(20, 3vmin);
     gap: 0;
-    margin: 0 0 3vmin 0;
 }
 
 .unrevealed {

@@ -10,16 +10,26 @@ const colorLookup = {
     8: 'gray',
 }
 
-// const styleLookup = {
-//     true: ''
-// }
+const numLookup = {
+    0: '<img  src="https://i.imgur.com/urvslGR.png">',
+    1: '<img  src="https://i.imgur.com/1wnTUnp.png">',
+    2: '<img  src="https://i.imgur.com/dqoRkIt.png">',
+    3: '<img  src="https://i.imgur.com/I07iOlD.png">',
+    4: '<img  src="https://i.imgur.com/nkPrsn5.png">',
+    5: '<img  src="https://i.imgur.com/8dijaSt.png">',
+    6: '<img  src="https://i.imgur.com/CoSSZqJ.png">',
+    7: '<img  src="https://i.imgur.com/bzsKNwX.png">',
+    8: '<img  src="https://i.imgur.com/VromFWb.png">',
+    9: '<img  src="https://i.imgur.com/HXHgmDl.png">',
+    '-': '<img src="https://i.imgur.com/Qd1VgCY.png">',
+}
 
 /*----- app's state (variables) -----*/
 let board, winner, mines, timer, hold;
 
 /*----- cached element references -----*/
 const cellEl = [...document.querySelectorAll('#board > div')];
-const bombCountEl = document.getElementById('bombs');
+// const bombCountEl = document.getElementById('bombs');
 const buttonEl = document.querySelector('button');
 
 /*----- event listeners -----*/
@@ -261,6 +271,7 @@ function flagCell(evt){
 }
 
 function holdOn(evt){
+    if (evt.ctrlKey) return;
     if (evt.which === 3) return;
     const idx = cellEl.indexOf(evt.target);
     if (!hold) return hold=true
@@ -293,19 +304,36 @@ function render(){
             }
         }
     });
-    if (mines - board.filter(cell => cell.flagged).length > 99){
-        bombCountEl.textContent = mines - board.filter(cell => cell.flagged).length
-    } else if (mines - board.filter(cell => cell.flagged).length < 99 && mines - board.filter(cell => cell.flagged).length > 10){
-        bombCountEl.textContent = `0${mines - board.filter(cell => cell.flagged).length}`
-    } else if (mines - board.filter(cell => cell.flagged).length < 10 && mines - board.filter(cell => cell.flagged).length > 0){
-        bombCountEl.textContent = `00${mines - board.filter(cell => cell.flagged).length}`
-    } else if (mines - board.filter(cell => cell.flagged).length === 0){
-        bombCountEl.textContent = `00${mines - board.filter(cell => cell.flagged).length}`
-    } else if (mines - board.filter(cell => cell.flagged).length < 0){
-        bombCountEl.textContent = `-0${(mines - board.filter(cell => cell.flagged).length) * -1}`
+    //works down to 0
+    if ((mines - board.filter(cell => cell.flagged).length) >= 0){
+        let array = Array.from(String(`${mines - board.filter(cell => cell.flagged).length}`.padStart(3, '0')), Number);
+        array.forEach(function(number, index){
+            const bombCell = document.getElementById(`bnum${index}`);
+            bombCell.innerHTML = numLookup[number];
+        })
+    //works down to -9
+    } else if ((mines - board.filter(cell => cell.flagged).length) < 0){
+        let array = Array.from(String(`-0${(mines - board.filter(cell => cell.flagged).length)*-1}`, Number));
+        array.forEach(function (number, index) {
+            const bombCell = document.getElementById(`bnum${index}`);
+            bombCell.innerHTML = numLookup[number];
+        })
     }
+    
     if (hold) buttonEl.innerHTML = '<img height="85%" src="https://i.imgur.com/iKGK9WJ.png">'
     else if (!hold) buttonEl.innerHTML = '<img height="85%" src="https://i.imgur.com/TPJhyY5.png">'
     if (winner === 1) buttonEl.innerHTML = '<img height="85%" src="https://i.imgur.com/Zd8eUHQ.png">'
     else if (winner === 2) buttonEl.innerHTML = '<img height="85%" src="https://i.imgur.com/TTxdJXR.png">'
 } 
+
+// if (mines - board.filter(cell => cell.flagged).length > 99) {
+//     bombCountEl.textContent = mines - board.filter(cell => cell.flagged).length
+// } else if (mines - board.filter(cell => cell.flagged).length < 99 && mines - board.filter(cell => cell.flagged).length > 10) {
+//     bombCountEl.textContent = `0${mines - board.filter(cell => cell.flagged).length}`
+// } else if (mines - board.filter(cell => cell.flagged).length < 10 && mines - board.filter(cell => cell.flagged).length > 0) {
+//     bombCountEl.textContent = `00${mines - board.filter(cell => cell.flagged).length}`
+// } else if (mines - board.filter(cell => cell.flagged).length === 0) {
+//     bombCountEl.textContent = `00${mines - board.filter(cell => cell.flagged).length}`
+// } else if (mines - board.filter(cell => cell.flagged).length < 0) {
+//     bombCountEl.textContent = `-0${(mines - board.filter(cell => cell.flagged).length) * -1}`
+// }

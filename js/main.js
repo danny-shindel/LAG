@@ -243,7 +243,6 @@ function getWinner(){
 }
 
 function flagCell(evt){
-    hold = true;
     if (winner) return
     const idx = cellEl.indexOf(evt.target);
     const idxp = cellEl.indexOf(evt.target.parentElement);
@@ -262,6 +261,7 @@ function flagCell(evt){
 }
 
 function holdOn(evt){
+    if (evt.which === 3) return;
     const idx = cellEl.indexOf(evt.target);
     if (!hold) return hold=true
     if (!board[idx]) return;

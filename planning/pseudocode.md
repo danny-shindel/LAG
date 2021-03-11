@@ -1,7 +1,7 @@
 <img src="https://i.imgur.com/NRTUWlT.png" width="115vmin">&nbsp;&nbsp;&nbsp;
-<img src="https://i.imgur.com/NwO9zC7.png" width="125vmin">&nbsp;&nbsp;&nbsp;
+<img src="https://i.imgur.com/NRTUWlT.png" width="125vmin">&nbsp;&nbsp;&nbsp;
 <img src="https://i.imgur.com/NRTUWlT.png" width="115vmin"> &nbsp;&nbsp;&nbsp;
-<img  src="https://i.imgur.com/NwO9zC7.png" width="125vmin">
+<img  src="https://i.imgur.com/NRTUWlT.png" width="125vmin">
 
 
 # MINESWEEPER PSEUDOCODE
@@ -16,7 +16,7 @@
     3. maybe board size of mines size depending on whether player can choose game difficulty
 3. Cached Elements
     1. all board squares must listen for click and double click for flag
-    2. replay buttom must listen for click
+    2. replay button must listen for click
 4. Init
     1. board must be created
         1. board will be array of object with length = how many squares on the board
@@ -29,17 +29,19 @@
     2. mines place randomly on board
         1. helper function that randomly selects board array index mine number of times a switched mine to true
     3. set adj number
-        1. help function that will iterrate through the board and set adj mine number for all qualifing squares
-    4. set winner = null
+        1. help function that will iterate through the board and set adj mine number for all qualifying squares
+    4. set winner = helper function
+        1. if amount of squares unrevealed = total amount of mines winner = 1
 5. Gameplay
     1. correspond index of click square with same square index of board array
         1. id divs of board to have index in them
-    2. check if that board index is mine
+    2. if board index has revealed value of true, return (that element has already been clicked)
+    3. check if that board index is mine
         1. if mine winner = 2
-    3. check if that board index adj mine - = 0
+    4. check if that board index adj mine - = 0
         1. if true flood
-    4. else set board index revealed to true
-    5. render
+    5. else set board index revealed to true
+    6. render
 6. Replay
     1. do step 4.1 - 4.4 (init)
 7. Icebox

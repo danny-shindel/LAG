@@ -1,8 +1,3 @@
-@font-face{
-    font-family:'digital';
-    src: url("../digital-7.regular.ttf")
-}
-
 * {
   box-sizing: border-box;
 }
@@ -102,7 +97,9 @@ header {
     width: 100%;
 }
 
-#menu > button{
+button:focus {outline:0;}
+
+.unpushed{
     height: 6vmin;
     width: 6vmin;
     border-top: .6vmin solid white;
@@ -115,11 +112,30 @@ header {
     align-items: center;
 }
 
+.pushed{
+    height: 6vmin;
+    width: 6vmin;
+    border-top: .8vmin solid rgb(123,123,123);
+    border-left: .8vmin solid rgb(123,123,123);
+    border-right: .2vmin solid rgb(123,123,123);
+    border-bottom: .2vmin solid rgb(123,123,123);
+    padding: 0 .4vmin .4vmin 0;
+    background-color: rgb(189,189,189);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #boardborder {
     border-bottom: .4vmin solid white;
     border-right: .4vmin solid white;
     border-top: .4vmin solid rgb(123,123,123);
     border-left: .4vmin solid rgb(123,123,123);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:60.5vmin;
+    height:60.5vmin;
 }
 
 section {
@@ -127,6 +143,7 @@ section {
     grid-template-columns: repeat(20, 3vmin);
     grid-template-rows: repeat(20, 3vmin);
     gap: 0;
+    margin-top:.1vmin;
 }
 
 .unrevealed {

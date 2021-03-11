@@ -29,11 +29,18 @@ let board, winner, mines, timer, hold;
 
 /*----- cached element references -----*/
 const cellEl = [...document.querySelectorAll('#board > div')];
-// const bombCountEl = document.getElementById('bombs');
 const buttonEl = document.querySelector('button');
 
 /*----- event listeners -----*/
 buttonEl.addEventListener('click', init);
+
+buttonEl.addEventListener('mousedown', function(){
+    buttonEl.classList.toggle('pushed');
+});
+
+buttonEl.addEventListener('mouseup', function(){
+    buttonEl.classList.toggle('pushed');
+});
 
 document.querySelector('#board').addEventListener('click', clickCell);
 
@@ -196,9 +203,9 @@ function setAdj(){
 function clickCell(evt){
     const idx = cellEl.indexOf(evt.target);
     if (board[idx] === undefined) return;
-    if (winner) return
+    if (winner) return;
     if (board[idx].flagged) return;
-    if (board.filter(cell => cell.revealed).length === 0) startTimmer();
+    if (board.filter(cell => cell.revealed).length === 0) startTimer();
     if (board[idx].mine){
         board.forEach(function (object, index) {
             if (object.flagged && object.mine) board[index].revealed = false;
@@ -214,7 +221,7 @@ function clickCell(evt){
     render();
 }
 
-function startTimmer() {
+function startTimer() {
     var sec = 0
     function pad(val) { return val > 9 ? val : "0" + val; }
     timer = setInterval(function () {
@@ -224,14 +231,13 @@ function startTimmer() {
             const timerCell = document.getElementById(`tnum${index}`);
             timerCell.innerHTML = numLookup[number];
         })
-        console.log(array)
     }, 1000);
 }
 
 function reveal(idx) {
     if (board[idx].flagged) return;
     board[idx].revealed = true;
-    if (board[idx].adjMines === 0) {
+    if (!board[idx].adjMines) {
         const neighbors = getNeighbors(idx);
         neighbors.forEach(function (idx) {
             if (!board[idx].revealed && !board[idx].mine) reveal(idx);
@@ -253,13 +259,12 @@ function getNeighbors(idx){
 }
 
 function getWinner(){
-    let winner = null
     if (board.some(cell => cell.boom === true)) return 2;
     if (board.filter(cell => cell.revealed === false).length <= 50) return 1;
 }
 
 function flagCell(evt){
-    if (winner) return
+    if (winner) return;
     const idx = cellEl.indexOf(evt.target);
     const idxp = cellEl.indexOf(evt.target.parentElement);
     if (idx >= 0){
@@ -310,14 +315,12 @@ function render(){
             }
         }
     });
-    //works down to 0
     if ((mines - board.filter(cell => cell.flagged).length) >= 0){
         let array = Array.from(String(`${mines - board.filter(cell => cell.flagged).length}`.padStart(3, '0')), Number);
         array.forEach(function(number, index){
             const bombCell = document.getElementById(`bnum${index}`);
             bombCell.innerHTML = numLookup[number];
         })
-    //works down to -9
     } else if ((mines - board.filter(cell => cell.flagged).length) < 0){
         let array = Array.from(String(`-0${(mines - board.filter(cell => cell.flagged).length)*-1}`, Number));
         array.forEach(function (number, index) {
@@ -325,21 +328,8 @@ function render(){
             bombCell.innerHTML = numLookup[number];
         })
     }
-    
     if (hold) buttonEl.innerHTML = '<img height="85%" src="https://i.imgur.com/iKGK9WJ.png">'
     else if (!hold) buttonEl.innerHTML = '<img height="85%" src="https://i.imgur.com/TPJhyY5.png">'
     if (winner === 1) buttonEl.innerHTML = '<img height="85%" src="https://i.imgur.com/Zd8eUHQ.png">'
     else if (winner === 2) buttonEl.innerHTML = '<img height="85%" src="https://i.imgur.com/TTxdJXR.png">'
 } 
-
-// if (mines - board.filter(cell => cell.flagged).length > 99) {
-//     bombCountEl.textContent = mines - board.filter(cell => cell.flagged).length
-// } else if (mines - board.filter(cell => cell.flagged).length < 99 && mines - board.filter(cell => cell.flagged).length > 10) {
-//     bombCountEl.textContent = `0${mines - board.filter(cell => cell.flagged).length}`
-// } else if (mines - board.filter(cell => cell.flagged).length < 10 && mines - board.filter(cell => cell.flagged).length > 0) {
-//     bombCountEl.textContent = `00${mines - board.filter(cell => cell.flagged).length}`
-// } else if (mines - board.filter(cell => cell.flagged).length === 0) {
-//     bombCountEl.textContent = `00${mines - board.filter(cell => cell.flagged).length}`
-// } else if (mines - board.filter(cell => cell.flagged).length < 0) {
-//     bombCountEl.textContent = `-0${(mines - board.filter(cell => cell.flagged).length) * -1}`
-// }

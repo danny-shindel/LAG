@@ -18,21 +18,21 @@
     - My motivation in developmet for this game was to create, as close as possible, a perfect clone of 90's era MineSweeper. From the different win/loss logic combinations of flagged/mine/revealed square relationships to render details such as the smiley face button press style, you will be hard pressed to find many difference between mine and the original game. As an homage to Curt Johnson's original MineSweeper, and an excerise in precision I think this project's execution was a success.
 
 ## Game Screenshots
-<img  src="https://i.imgur.com/i2742Ms.png" width="400vmin">
+<img  src="https://i.imgur.com/i2742Ms.png" width="450vmin">
 
-> Inital Board 
+> Inital Board: Board initiates with all squares unrevealed, left mine/flag counter at total number of mines, and right timer has not begun.
 
-<img  src="https://i.imgur.com/nJYGvDc.png" width="400vmin">
+<img  src="https://i.imgur.com/nJYGvDc.png" width="450vmin">
 
-> Gameplay Board
+> Gameplay Board: Board floods when needed, counts down mines as flags are place in left number count, right side timer times round, and board displays all necessary information for gameplay.
 
-<img  src="https://i.imgur.com/FbWsNli.png" width="400vmin">
+<img  src="https://i.imgur.com/FbWsNli.png" width="450vmin">
 
-> Losing Board
+> Losing Board: Smiling face turns to frowning face to indicate lose, all unflagged mines are revealed, mines flagged correctly remain flags, square flagged incorrectly render mines with red x, timer stops.
 
-<img  src="https://i.imgur.com/nkR5wgf.png" width="400vmin">
+<img  src="https://i.imgur.com/nkR5wgf.png" width="450vmin">
 
-> Winning Board
+> Winning Board: Smiling face turn into cool glasses face to indicate win, there are no more square to reveal that arent mines, timer stops.
 
 ## Technologies Used
 

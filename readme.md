@@ -63,5 +63,3 @@ Left click any square to begin playing. Left clicking a square reveals what's un
 - Sounds
     - Implementing period correct (90's) sounds during gameplay that enhance, and don't overshadow or distract from, gameplay.
 
-
-

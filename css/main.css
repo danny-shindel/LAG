@@ -32,69 +32,36 @@ header {
     justify-content: space-between;
     align-items: center;
     background-color: rgb(189,189,189);
-    width: 60vmin;
-    height: 10vmin;
+    width: 60.5vmin;
+    height: 9vmin;
     border-bottom: .4vmin solid white;
     border-right: .4vmin solid white;
     border-top: .4vmin solid rgb(123,123,123);
     border-left: .4vmin solid rgb(123,123,123);
     margin: 0 0 2vmin 0;
+    padding-right: 3vmin;
+    padding-left: 3vmin;
 }
 
-#bombsholder {
+.digitalHolder {
     background-color: black;
-    margin-left: 3vmin;
     height: 4.8vmin;
     width: 8.1vmin;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
-    border-top: .4vmin solid white;
-    border-left: .4vmin solid white;
-    border-bottom: .4vmin solid rgb(123,123,123);
-    border-right: .4vmin solid rgb(123,123,123);
+    border-bottom: .4vmin solid white;
+    border-right: .4vmin solid white;
+    border-top: .4vmin solid rgb(123,123,123);
+    border-left: .4vmin solid rgb(123,123,123);
 }
 
-#bombsholder > div{
-    padding: .3vmin;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-#bombsholder > div > img{
-    margin-top: .5vmin;
-    height: 100%;
-    width: 100%;
-}
-
-#timmerholder {
-    background-color: black;
-    margin-right: 3vmin;
-    height: 4.8vmin;
-    width: 8.1vmin;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    border-top: .4vmin solid white;
-    border-left: .4vmin solid white;
-    border-bottom: .4vmin solid rgb(123,123,123);
-    border-right: .4vmin solid rgb(123,123,123);
-}
-
-#timmerholder > div{
-    padding: .3vmin;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-#timmerholder > div > img{
-    margin-top: .5vmin;
-    height: 100%;
-    width: 100%;
+.digital {
+    height: 3.2vmin;
+    width: 1.76vmin;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 button:focus {outline:0;}
@@ -134,16 +101,15 @@ button:focus {outline:0;}
     display: flex;
     justify-content: center;
     align-items: center;
-    width:60.5vmin;
-    height:60.5vmin;
+    width:60.6vmin;
+    height:60.6vmin;
 }
 
-section {
+#board {
     display:grid;
     grid-template-columns: repeat(20, 3vmin);
     grid-template-rows: repeat(20, 3vmin);
     gap: 0;
-    margin-top:.1vmin;
 }
 
 .unrevealed {
@@ -161,7 +127,6 @@ section {
 .revealed {
     border: .1vmin solid rgb(123,123,123);
     background-color: rgb(189, 189, 189);
-    font-size: 2vmin;
     display: flex;
     justify-content: center;
     align-items: center;

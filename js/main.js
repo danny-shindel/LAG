@@ -11,17 +11,17 @@ const colorLookup = {
 }
 
 const numLookup = {
-    0: '<img  src="https://i.imgur.com/urvslGR.png">',
-    1: '<img  src="https://i.imgur.com/1wnTUnp.png">',
-    2: '<img  src="https://i.imgur.com/dqoRkIt.png">',
-    3: '<img  src="https://i.imgur.com/I07iOlD.png">',
-    4: '<img  src="https://i.imgur.com/nkPrsn5.png">',
-    5: '<img  src="https://i.imgur.com/8dijaSt.png">',
-    6: '<img  src="https://i.imgur.com/CoSSZqJ.png">',
-    7: '<img  src="https://i.imgur.com/bzsKNwX.png">',
-    8: '<img  src="https://i.imgur.com/VromFWb.png">',
-    9: '<img  src="https://i.imgur.com/HXHgmDl.png">',
-    '-': '<img src="https://i.imgur.com/Qd1VgCY.png">',
+    0: 'https://i.imgur.com/urvslGR.png',
+    1: 'https://i.imgur.com/1wnTUnp.png',
+    2: 'https://i.imgur.com/dqoRkIt.png',
+    3: 'https://i.imgur.com/I07iOlD.png',
+    4: 'https://i.imgur.com/nkPrsn5.png',
+    5: 'https://i.imgur.com/8dijaSt.png',
+    6: 'https://i.imgur.com/CoSSZqJ.png',
+    7: 'https://i.imgur.com/bzsKNwX.png',
+    8: 'https://i.imgur.com/VromFWb.png',
+    9: 'https://i.imgur.com/HXHgmDl.png',
+    '-': 'https://i.imgur.com/Qd1VgCY.png',
 }
 
 /*----- app's state (variables) -----*/
@@ -229,7 +229,7 @@ function startTimer() {
         let array = Array.from(String(`${sec}`.padStart(3, '0')), Number);
         array.forEach(function (number, index) {
             const timerCell = document.getElementById(`tnum${index}`);
-            timerCell.innerHTML = numLookup[number];
+            timerCell.style.backgroundImage = `url(${numLookup[number]})`
         })
     }, 1000);
 }
@@ -319,13 +319,13 @@ function render(){
         let array = Array.from(String(`${mines - board.filter(cell => cell.flagged).length}`.padStart(3, '0')), Number);
         array.forEach(function(number, index){
             const bombCell = document.getElementById(`bnum${index}`);
-            bombCell.innerHTML = numLookup[number];
+            bombCell.style.backgroundImage = `url(${numLookup[number]})`
         })
     } else if ((mines - board.filter(cell => cell.flagged).length) < 0){
         let array = Array.from(String(`-0${(mines - board.filter(cell => cell.flagged).length)*-1}`, Number));
         array.forEach(function (number, index) {
             const bombCell = document.getElementById(`bnum${index}`);
-            bombCell.innerHTML = numLookup[number];
+            bombCell.style.backgroundImage = `url(${numLookup[number]})`
         })
     }
     if (hold) buttonEl.innerHTML = '<img height="85%" src="https://i.imgur.com/iKGK9WJ.png">'

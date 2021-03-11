@@ -18,19 +18,19 @@
     - My motivation in developmet for this game was to create, as close as possible, a perfect clone of 90's era MineSweeper. From the different win/loss logic combinations of flagged/mine/revealed square relationships to render details such as the smiley face button press style, you will be hard pressed to find many difference between mine and the original game. As an homage to Curt Johnson's original MineSweeper, and an excerise in precision I think this project's execution was a success.
 
 ## Game Screenshots
-<img  src="https://i.imgur.com/i2742Ms.png" width="250vmin">
+<img  src="https://i.imgur.com/i2742Ms.png" width="400vmin">
 
 > Inital Board 
 
-<img  src="https://i.imgur.com/nJYGvDc.png" width="250vmin">
+<img  src="https://i.imgur.com/nJYGvDc.png" width="400vmin">
 
 > Gameplay Board
 
-<img  src="https://i.imgur.com/FbWsNli.png" width="250vmin">
+<img  src="https://i.imgur.com/FbWsNli.png" width="400vmin">
 
 > Losing Board
 
-<img  src="https://i.imgur.com/nkR5wgf.png" width="250vmin">
+<img  src="https://i.imgur.com/nkR5wgf.png" width="400vmin">
 
 > Winning Board
 

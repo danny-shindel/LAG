@@ -1,6 +1,6 @@
-<img src="https://i.imgur.com/NRTUWlT.png" width="115vmin">&nbsp;&nbsp;&nbsp;
 <img src="https://i.imgur.com/NRTUWlT.png" width="125vmin">&nbsp;&nbsp;&nbsp;
-<img src="https://i.imgur.com/NRTUWlT.png" width="115vmin"> &nbsp;&nbsp;&nbsp;
+<img src="https://i.imgur.com/NRTUWlT.png" width="125vmin">&nbsp;&nbsp;&nbsp;
+<img src="https://i.imgur.com/NRTUWlT.png" width="125vmin"> &nbsp;&nbsp;&nbsp;
 <img  src="https://i.imgur.com/NRTUWlT.png" width="125vmin">
 
 

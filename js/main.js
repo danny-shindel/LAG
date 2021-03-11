@@ -60,7 +60,6 @@ function init(){
     setMines(mines);
     setAdj();
     winner = null;
-    console.log(board);
     clearInterval(timer);
     hold = true
     render();

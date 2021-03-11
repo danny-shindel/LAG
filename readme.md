@@ -4,119 +4,64 @@
 <img  src="https://i.imgur.com/TTxdJXR.png" width="115vmin">
 
 
-# PROJECT 1 MINESWEEPER
+# MINESWEEPER BY DANIEL SHINDEL
 
-General Assembly Cohort SEIR-02-22-21 
-Project 1 : Created by Danny Shindel
+``General Assembly Cohort SEIR-02-22-21 Project 1``
 
-### Contents
+## Project Description
 
-- Course Dates and Holidays
-- Link to the Class Zoom Room
-- Course Curriculum
-- Instructional Team / Contact Info
-- Links to Sign Up for Instructors' Office Hours
-- Link to Recorded Lessons
-- Link to Deliverable Schedule
-- Class Repository Structure
-- Becoming Familiar With the SEI GitHub Workflow
-- Daily JavaScript Code Challenges
-- Additional Coding Practice Resources
-- Immersive Graduation Requirements
+- MineSweeper Background
+    - Created by Curt Johnson, orginally for IBM's OS/2, MineSweeper was ported to Microsoft Windows by Robert Donner and offically released as part of the Microsoft Entertainment Pack 1 in 1990. As a standard install, it was first included as a part of Windows 3.1 in 1992.
+- Project Requirments
+    - A game of your choice, from a set list, that includes win/loss logic coupled with win/loss rendering that is playable in a browser. Must be coded using separate HTML,CSS, & JavaScript files, be properly indented, have no remaining dead and/or commented out code, sensibly names function and variables, be coded in a consistent manner, and deployed online using GitHub Pages.
+- Execution
+    - My motivation in developmet for this game was to create, as close as possible, a perfect clone of 90's era MineSweeper. From the different win/loss logic combinations of flagged/mine/revealed square relationships to render details such as the smiley face button press style, you will be hard pressed to find many difference between mine and the original game. As an homage to Curt Johnson's original MineSweeper, and an excerise in precision I think this project's execution was a success.
 
-### Course Dates and Holidays
+## Game Screenshots
+<img  src="https://i.imgur.com/i2742Ms.png" width="250vmin">
 
-- Course Dates: Monday, February 22nd, 2021 - Friday, May 14th, 2021 (60 days)
-- Holidays:
-	- None
+> Inital Board 
 
-### Link to the Class Zoom Room
+<img  src="https://i.imgur.com/nJYGvDc.png" width="250vmin">
 
-[Link to join the class Zoom Room](https://generalassembly.zoom.us/j/95172668600?pwd=SE9YOGpoRm8xbHVJUU0wWmd6b2Z0dz09)
+> Gameplay Board
 
-### Course Curriculum
+<img  src="https://i.imgur.com/FbWsNli.png" width="250vmin">
 
-> The following is an overall schedule and is subject to change.
+> Losing Board
 
-<table>
-  <thead>
-    <tr><th>Unit</th><th>Week</th><th>Topics</th><th>Project</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td rowspan="3">Fundamentals of Front-end Development</td>
-      <td align="center">1</td>
-      <td>Fundamentals of JavaScript, HTML & CSS<br>DOM Manipulation & Events<br>Structuring a Browser App</td>
-      <td rowspan="3">Browser-based Game</td>
-    </tr>
-    <tr>
-      <td align="center">2</td>
-      <td>CSS: Flexbox, Grid & Responsive Design<br>JS: Callback functions, Classes, jQuery, this Keyword, Array Iterator Methods & Playing Audio</td>
-    </tr>
-    <tr>
-      <td align="center">3</td>
-      <td>Project Week<br>Project Deployment to GitHub Pages</td>
-    </tr>
-    <tr>
-      <td rowspan="3">Full-stack Development</td>
-      <td align="center">4</td>
-      <td>Client-Server: HTTP Communications & RESTful Routing<br>NodeJS & ExpressJS Framework<br>MongoDB & MongooseJS ODM<br>Computer Science</td>
-      <td rowspan="3">MEN-stack CRUD Application</td>
-    </tr>
-    <tr>
-      <td align="center">5</td>
-      <td>Promises<br>Consuming APIs<br>Authentication using OAuth<br>User-Centric CRUD<br>Regular Expressions</td>
-    </tr>
-    <tr>
-      <td align="center">6</td>
-      <td>CS Topics<br>Project Week<br>Project Deployment to Heroku</td>
-    </tr>
-    <tr>
-      <td rowspan="3">Second Language & Web Framework</td>
-      <td align="center">7</td>
-      <td>Relational Databases & SQL<br>Fundamentals of Python<br>CS Topics</td>
-      <td rowspan="3">Group Project: Full-stack Django Application</td>
-    </tr>
-    <tr>
-      <td align="center">8</td>
-      <td>Django Web Framework<br>Uploading Files to Amazon S3<br>Username/Password Authentication</td>
-    </tr>
-    <tr>
-      <td align="center">9</td>
-      <td>CS Topics<br>Project Week<br>Project Deployment to Heroku</td>
-    </tr>
-    <tr>
-      <td rowspan="3">Developing Single-page Apps</td>
-      <td align="center">10</td>
-      <td>Fundamentals of React<br>MERN-Stack Infrastructure</td>
-      <td rowspan="3">MERN-Stack Application</td>
-    </tr>
-    <tr>
-      <td align="center">11</td>
-      <td>MERN-Stack Infrastructure (cont.)<br>Token-based Authentication</td>
-    </tr>
-    <tr>
-      <td align="center">12</td>
-      <td>CS Topics<br>Project Week<br>Project Deployment to Heroku</td>
-    </tr>
-  </tbody>
-</table>
+<img  src="https://i.imgur.com/nkR5wgf.png" width="250vmin">
 
-### Instructional Team Contact Information
+> Winning Board
 
-|Role        | Name            | Slack       | Email |
-|:--         | :--             | :--         | :-- |
-|Lead Instructor  | Jim Clark       | @Jim Clark  | jim.clark@generalassemb.ly |
-|Lead Instructor | Chris Ogilvy |  @Chris Ogilvy  | chris.ogilvy@generalassemb.ly |
-|Instructor Associate | Shaw Kitajima |  @Shaw Kitajima  | shaw.kitajima@generalassemb.ly |
+## Technologies Used
 
-### Links to Sign Up for Instructors' Office Hours
+- HTML
+- CSS
+- JavaScript
 
-Instructors will have a limited number of 15 minute one-on-one office hour visits each week.
+## Getting Started
 
-Click on the links provided below to schedule a 15 minute session for the week:
+### Rules
 
-|Instructor| Sign Up Link| Zoom Link |
-|:--|:-:|:-:|
-|Jim Clark| [link](https://calendly.com/jim-clark-ga/one-on-one) | [link](https://generalassembly.zoom.us/j/2909161095?pwd=MnRSczRBazFwTktzNmJDQzRpa3drUT09) |
-| Chris Ogilvy | [link](https://calendly.com/chris-ogilvy-ga/15min) | [link](https://generalassembly.zoom.us/j/9446159322?pwd=K2dKMFVhYUFKNGkrSFowTXBpd0R0Zz09) |
+Left click any square to begin playing. Left clicking a square reveals what's under that square. If there is a mine under a square, you love. The numbers shown on revealed squares represent how many squares that are touching that square have bombs. The bombs can be above, below, right, left, or diagonal to the square.Avoid all the mines and expose all the empty squares to win.
+> Hint: Use the numbers to determine where the bombs are.
+
+> Hint: You can place flags of unrevealed, that you think are mines, using right click. A flag placed on a square will not allow you to reveal that square. The number on the leftside of the screen indicated how many mines exist on the board and decreases with each mine placement.
+
+
+### Link to Game
+
+[MineSweeper](https://danny-shindel.github.io/MineSweeper/)
+
+## Planned Future Enhancemnts
+
+- Full Mobile Compatibility
+    - In its' current state the game is able to be played on a mobile browser, however, you are not able to flag squares.
+- Board Manipulation
+    - Implementation of features that allow player to choose difficults that correspond with different board sizes and mine counts.
+- Sounds
+    - Implementing period correct (90's) sounds during gameplay that enhance, and dont overshadow or distract from, gameplay.
+
+
+

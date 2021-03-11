@@ -11,20 +11,20 @@
 ## Project Description
 
 - MineSweeper Background
-    - Created by Curt Johnson, orginally for IBM's OS/2, MineSweeper was ported to Microsoft Windows by Robert Donner and offically released as part of the Microsoft Entertainment Pack 1 in 1990. As a standard install, it was first included as a part of Windows 3.1 in 1992.
-- Project Requirments
+    - Created by Curt Johnson, originally for IBM's OS/2, MineSweeper was ported to Microsoft Windows by Robert Donner and officially released as part of the Microsoft Entertainment Pack 1 in 1990. As a standard install, it was first included as a part of Windows 3.1 in 1992.
+- Project Requirements
     - A game of your choice, from a set list, that includes win/loss logic coupled with win/loss rendering that is playable in a browser. Must be coded using separate HTML,CSS, & JavaScript files, be properly indented, have no remaining dead and/or commented out code, sensibly named function and variables, be coded in a consistent manner, and deployed online using GitHub Pages.
 - Execution
-    - My motivation in developmet for this game was to create, as close as possible, a perfect clone of 90's era MineSweeper. From the different win/loss logic combinations of flagged/mine/revealed square relationships to render details such as the smiling face button press style, you will be hard pressed to find many difference between mine and the original game, both in function and style. As an homage to Curt Johnson's original MineSweeper, and an excerise in precision I think this project's execution was a success.
+    - My motivation in development for this game was to create, as close as possible, a perfect clone of 90's era MineSweeper. From the different win/loss logic combinations of flagged/mine/revealed square relationships to render details such as the smiling face button press style, you will be hard pressed to find many differences between mine and the original game, both in function and style. As an homage to Curt Johnson's original MineSweeper, and an exercise in precision I think this project's execution was a success.
 
 ## Game Screenshots
 <img  src="https://i.imgur.com/i2742Ms.png" width="450vmin">
 
-> Inital Board: Board initiates with all squares unrevealed and mines placed randomly, left mine/flag counter at total number of mines, and right timer has not begun.
+> Initial Board: Board initiates with all squares unrevealed and mines placed randomly, left mine/flag counter at total number of mines, and right timer has not begun.
 
 <img  src="https://i.imgur.com/nJYGvDc.png" width="450vmin">
 
-> Gameplay Board: Board floods when needed, counts down mines as flags are place in left number count, right side timer times round, and board displays all necessary information for gameplay.
+> Gameplay Board: Board floods when needed, left number counts down mines as flags are placed, right number times round in seconds, and board displays all necessary information for gameplay.
 
 <img  src="https://i.imgur.com/FbWsNli.png" width="450vmin">
 
@@ -32,7 +32,7 @@
 
 <img  src="https://i.imgur.com/nkR5wgf.png" width="450vmin">
 
-> Winning Board: Smiling face turn into cool glasses face to indicate win, there are no more square to reveal that arent mines, timer stops.
+> Winning Board: Smiling face turns into cool glasses face to indicate win, there are no more squares to reveal that arent mines, timer stops.
 
 ## Technologies Used
 
@@ -57,9 +57,9 @@ Left click any square to begin playing. Left clicking a square reveals what's un
 ## Planned Future Enhancements
 
 - Full Mobile Compatibility
-    - In its' current state the game is able to be played on a mobile browser, however, you are not able to flag squares.
+    - In its current state the game is able to be played on a mobile browser, however, you are not able to flag squares.
 - Board Manipulation
-    - Implementation of features that allow player to choose difficulty levels that correspond with different board sizes and mine counts.
+    - Implementation of features that allow players to choose difficulty levels that correspond with different board sizes and mine counts.
 - Sounds
     - Implementing period correct (90's) sounds during gameplay that enhance, and don't overshadow or distract from, gameplay.
 

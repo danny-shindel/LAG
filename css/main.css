@@ -34,13 +34,13 @@ header {
     background-color: rgb(189,189,189);
     width: 60.5vmin;
     height: 9vmin;
+    margin: 0 0 2vmin 0;
+    padding-right: 3vmin;
+    padding-left: 3vmin;
     border-bottom: .4vmin solid white;
     border-right: .4vmin solid white;
     border-top: .4vmin solid rgb(123,123,123);
     border-left: .4vmin solid rgb(123,123,123);
-    margin: 0 0 2vmin 0;
-    padding-right: 3vmin;
-    padding-left: 3vmin;
 }
 
 .digitalHolder {
@@ -64,7 +64,13 @@ header {
     background-repeat: no-repeat;
 }
 
-button:focus {outline:0;}
+button:focus {
+    outline:0;
+}
+
+button > img {
+    height: 85%;
+}
 
 .unpushed{
     height: 6vmin;
@@ -86,7 +92,8 @@ button:focus {outline:0;}
     border-left: .8vmin solid rgb(123,123,123);
     border-right: .2vmin solid rgb(123,123,123);
     border-bottom: .2vmin solid rgb(123,123,123);
-    padding: 0 .4vmin .4vmin 0;
+    padding-right: .4vmin;
+    padding-bottom: .4vmin;
     background-color: rgb(189,189,189);
     display: flex;
     justify-content: center;
@@ -94,15 +101,15 @@ button:focus {outline:0;}
 }
 
 #boardborder {
-    border-bottom: .4vmin solid white;
-    border-right: .4vmin solid white;
-    border-top: .4vmin solid rgb(123,123,123);
-    border-left: .4vmin solid rgb(123,123,123);
     display: flex;
     justify-content: center;
     align-items: center;
     width:60.6vmin;
     height:60.6vmin;
+    border-bottom: .5vmin solid white;
+    border-right: .5vmin solid white;
+    border-top: .5vmin solid rgb(123,123,123);
+    border-left: .5vmin solid rgb(123,123,123);
 }
 
 #board {
@@ -133,6 +140,3 @@ button:focus {outline:0;}
     font-weight: bold;
     font-size: 2vmin;
 }
-
-
-

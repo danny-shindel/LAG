@@ -37,45 +37,131 @@ const imageLookup = {
     'bombx': '<img height="80%" src="https://i.imgur.com/M8yFgAA.png">',
 }
 
+const mineLookup = {
+    10: 10,
+    20: 50,
+    25: 125,
+}
+
+const menuWidth = {
+    10: '30.5vmin',
+    20: '60.5vmin',
+    25: '75.5vmin',
+}
+
+const titleWidth = {
+    10: '6.8vmin',
+    20: '12.1vmin',
+    25: '15.2vmin',
+}
+
 /*----- app's state (variables) -----*/
-let board, winner, mines, timer, hold;
+let board, winner, mines, timer, hold, size, cellEl;
 
 /*----- cached element references -----*/
-const cellEl = [...document.querySelectorAll('#board > div')];
-const buttonEl = document.querySelector('button');
+const buttonEl = document.getElementById('single');
+const difficultyEl = document.querySelectorAll('.difficulty');
+const testEl = document.getElementById('board');
+const boardEl = document.getElementById('boardborder');
+const menuEl = document.getElementById('menu');
+const titleEl = document.querySelector('header');
+const digitalEl = document.getElementById('count');
+const timerEl = document.getElementById('timer');
+
 
 /*----- event listeners -----*/
-buttonEl.addEventListener('click', init);
+difficultyEl.forEach(button => {button.addEventListener('click', difficulty)})
+difficultyEl.forEach(button => {button.addEventListener('mousedown', function(evt){
+    if (evt.ctrlKey || evt.which === 3) return;
+    button.classList.toggle('pushed');
+})});
+difficultyEl.forEach(button => {button.addEventListener('mouseup', function (evt) {
+        if (evt.ctrlKey || evt.which === 3) return;
+        button.classList.toggle('pushed');
+})});
 
-buttonEl.addEventListener('mousedown', function(){
+buttonEl.addEventListener('click', init);
+buttonEl.addEventListener('contextmenu', difficulty);
+buttonEl.addEventListener('mousedown', function(evt){
+    if (evt.ctrlKey || evt.which === 3) return;
     buttonEl.classList.toggle('pushed');
 });
-
-buttonEl.addEventListener('mouseup', function(){
+buttonEl.addEventListener('mouseup', function(evt){
+    if (evt.ctrlKey || evt.which === 3) return;
     buttonEl.classList.toggle('pushed');
 });
 
 document.querySelector('#board').addEventListener('click', clickCell);
-
 document.querySelector('#board').addEventListener('contextmenu', flagCell);
-
 document.querySelector('#board').addEventListener('mousedown', holdOn); 
-
 document.querySelector('#board').addEventListener('mouseup', holdOn); 
 
 /*----- functions -----*/
 init();
 
+function difficulty(evt){
+    if (evt.ctrlKey || evt.which === 3){
+        buttonEl.style.display = "none";
+        difficultyEl.forEach(button => { button.style.display = "flex" });
+        if (size === 10){
+            digitalEl.style.display = "none";
+            timerEl.style.display = "none";
+            menuEl.style.justifyContent = "center";
+        }
+    } else {
+        if (digitalEl.style.display === "none") digitalEl.style.display = "flex";
+        if (timerEl.style.display === "none") timerEl.style.display = "flex";
+        if (menuEl.style.justifyContent === "center") menuEl.style.justifyContent = "space-between";
+        buttonEl.style.display = "flex";
+        difficultyEl.forEach(button => { button.style.display = "none" });
+        if (evt.target.parentElement.id > 0){
+            size = parseInt(evt.target.parentElement.id);
+        }else size = parseInt(evt.target.id);{
 
-function init() {
-    board = new Array(400).fill().map(u => ({mine: false, adjMines: 0, revealed: false, flagged: false, boom: false}));
-    mines = 50;
+        }
+        init(1);
+    }
+}
+
+function init(x) {
+    if (!x) {size = 20}
+    genBoard();
+    board = new Array(size * size).fill().map(u => ({mine: false, adjMines: 0, revealed: false, flagged: false, boom: false}));
+    mines = mineLookup[size];
     setMines(mines);
     setAdj();
     winner = null;
     clearInterval(timer);
     hold = true
     render();
+}
+
+function genBoard(){
+    while (testEl.firstChild) {
+        testEl.removeChild(testEl.lastChild);
+    }
+    boardArray = new Array(size * size)
+    for (let i = 0; i < boardArray.length; i++)
+        boardArray[i] = `b${i}`
+    boardArray.forEach(function (id) {
+        const div = document.createElement('div')
+        div.setAttribute('id', id);
+        testEl.appendChild(div);
+    })
+    testEl.classList.remove(...testEl.classList);
+    boardEl.classList.remove(...boardEl.classList);
+    boardEl.classList.add(`boardborder${size}`)
+    testEl.classList.add(`board${size}`)
+    menuEl.style.width = menuWidth[size];
+    if (size === 10){
+        menuEl.style.paddingRight = '1vmin';
+        menuEl.style.paddingLeft = '1vmin';
+    } else {
+        menuEl.style.paddingRight = '3vmin';
+        menuEl.style.paddingLeft = '3vmin';
+    }
+    titleEl.style.fontSize = titleWidth[size];
+    cellEl = [...document.querySelectorAll('#board > div')];
 }
 
 function setMines(num) {
@@ -94,28 +180,28 @@ function setAdj() {
     board.forEach(function (object, index) {
         if (object.mine) return;
         let numAdj = 0;
-        if (index % 20 !== 0 && (index - 20) >= 0) {
-            if (board[index - 20 - 1].mine) numAdj += 1;
+        if (index % size !== 0 && (index - size) >= 0) {
+            if (board[index - size - 1].mine) numAdj += 1;
         }; //northwest
-        if ((index - 20) >= 0) {
-            if (board[index - 20].mine) numAdj += 1;
+        if ((index - size) >= 0) {
+            if (board[index - size].mine) numAdj += 1;
         }; //north
-        if (index % 20 < 19 && (index - 20) >= 0) {
-            if (board[index - 20 + 1].mine) numAdj += 1;
+        if (index % size < (size - 1) && (index - size) >= 0) {
+            if (board[index - size + 1].mine) numAdj += 1;
         }; //northeast
-        if (index % 20 < 19) {
+        if ((index % size) < (size - 1)) {
             if (board[index + 1].mine) numAdj += 1;
         }; //east
-        if (index % 20 < 19 && (index + 20) < board.length) {
-            if (board[index + 20 + 1].mine) numAdj += 1;
+        if ((index % size) < (size - 1) && (index + size) < board.length) {
+            if (board[index + size + 1].mine) numAdj += 1;
         }; //southeast
-        if ((index + 20) < board.length) {
-            if (board[index + 20].mine) numAdj += 1;
+        if ((index + size) < board.length) {
+            if (board[index + size].mine) numAdj += 1;
         }; //south
-        if ((index + 20) < board.length && index % 20 !== 0) {
-            if (board[index + 20 - 1].mine) numAdj += 1;
+        if ((index + size) < board.length && index % size !== 0) {
+            if (board[index + size - 1].mine) numAdj += 1;
         }; //southwest
-        if (index % 20 !== 0) {
+        if (index % size !== 0) {
             if (board[index - 1].mine) numAdj += 1;
         }; //west
         board[index].adjMines = numAdj;
@@ -169,20 +255,20 @@ function reveal(idx) {
 
 function getNeighbors(idx) {
     const neighbors = [];
-    if (idx % 20 !== 0 && (idx-20) >= 0) neighbors.push(idx - 20 - 1); //northwest
-    if ((idx-20) >= 0) neighbors.push(idx-20); //north
-    if (idx % 20 <19 && (idx-20) >= 0) neighbors.push(idx - 20 + 1); //northeast
-    if (idx % 20 < 19) neighbors.push(idx + 1); //east
-    if (idx % 20 < 19 && (idx + 20) < board.length) neighbors.push(idx + 20 + 1); //southeast
-    if ((idx + 20) < board.length) neighbors.push(idx + 20); //south
-    if ((idx + 20) < board.length && idx % 20 !== 0) neighbors.push(idx + 20 -1); //southwest
-    if (idx % 20 !== 0) neighbors.push(idx - 1); //west
+    if (idx % size !== 0 && (idx-size) >= 0) neighbors.push(idx - size - 1); //northwest
+    if ((idx - size) >= 0) neighbors.push(idx-size); //north
+    if (idx % size <(size - 1) && (idx-size) >= 0) neighbors.push(idx - size + 1); //northeast
+    if (idx % size < (size - 1)) neighbors.push(idx + 1); //east
+    if (idx % size < (size - 1) && (idx + size) < board.length) neighbors.push(idx + size + 1); //southeast
+    if ((idx + size) < board.length) neighbors.push(idx + size); //south
+    if ((idx + size) < board.length && idx % size !== 0) neighbors.push(idx + size -1); //southwest
+    if (idx % size !== 0) neighbors.push(idx - 1); //west
     return neighbors;
 }
 
 function getWinner() {
     if (board.some(cell => cell.boom === true)) return 2;
-    if (board.filter(cell => cell.revealed === false).length <= 50) return 1;
+    if (board.filter(cell => cell.revealed === false).length <= mines) return 1;
 }
 
 function flagCell(evt) {

@@ -68,7 +68,7 @@ button:focus {
     outline:0;
 }
 
-button > img {
+#single > img {
     height: 85%;
 }
 
@@ -100,7 +100,7 @@ button > img {
     align-items: center;
 }
 
-#boardborder {
+.boardborder20 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -112,10 +112,50 @@ button > img {
     border-left: .5vmin solid rgb(123,123,123);
 }
 
-#board {
+.boardborder10 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:30.6vmin;
+    height:30.6vmin;
+    border-bottom: .5vmin solid white;
+    border-right: .5vmin solid white;
+    border-top: .5vmin solid rgb(123,123,123);
+    border-left: .5vmin solid rgb(123,123,123);
+}
+
+.boardborder25 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:75.6vmin;
+    height:75.6vmin;
+    border-bottom: .5vmin solid white;
+    border-right: .5vmin solid white;
+    border-top: .5vmin solid rgb(123,123,123);
+    border-left: .5vmin solid rgb(123,123,123);
+}
+
+
+
+.board10 {
+    display:grid;
+    grid-template-columns: repeat(10, 3vmin);
+    grid-template-rows: repeat(10, 3vmin);
+    gap: 0;
+}
+
+.board20 {
     display:grid;
     grid-template-columns: repeat(20, 3vmin);
     grid-template-rows: repeat(20, 3vmin);
+    gap: 0;
+}
+
+.board25 {
+    display:grid;
+    grid-template-columns: repeat(25, 3vmin);
+    grid-template-rows: repeat(25, 3vmin);
     gap: 0;
 }
 
@@ -139,4 +179,12 @@ button > img {
     align-items: center;
     font-weight: bold;
     font-size: 2vmin;
+}
+
+.difficulty {
+    display:none;
+}
+
+#buttonholder {
+    display:flex;
 }

@@ -148,7 +148,7 @@ function type() {
         count ++;
         index = 0;
     }
-    setTimeout(type, 100);
+    setTimeout(type, 50);
 }
 
 function type2() {
@@ -158,7 +158,7 @@ function type2() {
     currentText = texts[1];
     letter = currentText.slice(0, ++index);
     textEl.textContent = letter;
-    setTimeout(type2, 150);
+    setTimeout(type2, 50);
 }
 
 function genBoard(){

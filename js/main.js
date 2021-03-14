@@ -37,22 +37,11 @@ const imageLookup = {
     'bombx': '<img height="80%" src="https://i.imgur.com/M8yFgAA.png">',
 }
 
-const mineLookup = {
-    10: 10,
-    20: 50,
-    25: 125,
-}
+const sizeLookup = {
+    10: [10, '30.5vmin', '6.8vmin'],
+    20: [50, '60.5vmin', '12.1vmin'],
+    25: [125, '75.5vmin', '15.2vmin'],
 
-const menuWidth = {
-    10: '30.5vmin',
-    20: '60.5vmin',
-    25: '75.5vmin',
-}
-
-const titleWidth = {
-    10: '6.8vmin',
-    20: '12.1vmin',
-    25: '15.2vmin',
 }
 
 /*----- app's state (variables) -----*/
@@ -64,9 +53,10 @@ const difficultyEl = document.querySelectorAll('.difficulty');
 const testEl = document.getElementById('board');
 const boardEl = document.getElementById('boardborder');
 const menuEl = document.getElementById('menu');
-const titleEl = document.querySelector('header');
 const digitalEl = document.getElementById('count');
 const timerEl = document.getElementById('timer');
+const textEl = document.querySelector('header');
+
 
 
 /*----- event listeners -----*/
@@ -124,10 +114,12 @@ function difficulty(evt){
 }
 
 function init(x) {
-    if (!x) {size = 20}
+    if (!x) {
+        size = 20;
+    }
     genBoard();
     board = new Array(size * size).fill().map(u => ({mine: false, adjMines: 0, revealed: false, flagged: false, boom: false}));
-    mines = mineLookup[size];
+    mines = sizeLookup[size][0];
     setMines(mines);
     setAdj();
     winner = null;
@@ -152,15 +144,14 @@ function genBoard(){
     boardEl.classList.remove(...boardEl.classList);
     boardEl.classList.add(`boardborder${size}`)
     testEl.classList.add(`board${size}`)
-    menuEl.style.width = menuWidth[size];
+    menuEl.style.width = sizeLookup[size][1];
     if (size === 10){
-        menuEl.style.paddingRight = '1vmin';
-        menuEl.style.paddingLeft = '1vmin';
+        menuEl.style.paddingRight = '2vmin';
+        menuEl.style.paddingLeft = '2vmin';
     } else {
         menuEl.style.paddingRight = '3vmin';
         menuEl.style.paddingLeft = '3vmin';
     }
-    titleEl.style.fontSize = titleWidth[size];
     cellEl = [...document.querySelectorAll('#board > div')];
 }
 

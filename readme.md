@@ -55,11 +55,13 @@ Left click any square to begin playing. Left clicking a square reveals what's un
 [MineSweeper](https://danny-shindel.github.io/MineSweeper/)
 
 ## Planned Future Enhancements
+``03.12.21``
 
 - Full Mobile Compatibility
     - In its current state the game is able to be played on a mobile browser, however, you are not able to flag squares.
 - Board Manipulation
     - Implementation of features that allow players to choose difficulty levels that correspond with different board sizes and mine counts.
+    ``IMPLEMENTED: 03.13.21``
 - Sounds
     - Implementing period correct (90's) sounds during gameplay that enhance, and don't overshadow or distract from, gameplay.
 

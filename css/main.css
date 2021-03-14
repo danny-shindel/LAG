@@ -1,3 +1,8 @@
+@font-face{
+    font-family:'digital';
+    src: url("../Glass_TTY_VT220.ttf")
+}
+
 * {
   box-sizing: border-box;
 }
@@ -9,12 +14,6 @@ body {
     justify-content: center;
     align-items: center;
     background-color: rgb(222,209,128);
-}
-
-header {
-    font-family: 'Libre Barcode 39 Text';
-    font-size: 12.1vmin;
-    margin: 3vmin 0 3vmin 0;
 }
 
 #border {
@@ -64,11 +63,11 @@ header {
     background-repeat: no-repeat;
 }
 
-button:focus {
-    outline:0;
+#buttonholder {
+    display:flex;
 }
 
-#single > img {
+#buttonholder > div > img {
     height: 85%;
 }
 
@@ -185,6 +184,4 @@ button:focus {
     display:none;
 }
 
-#buttonholder {
-    display:flex;
-}
+

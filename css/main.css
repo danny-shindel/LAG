@@ -184,4 +184,24 @@ body {
     display:none;
 }
 
+.typing::after{
+    content: "";
+    border-right: 1vmin solid black;
+    animation: blink 0.6s infinite;
+}
 
+@keyframes blink {
+    0% {
+        opacity: 0;
+    }
+    100$ {
+        opacity: 1;
+    }
+}
+
+header {
+    margin-bottom: 1vmin;
+    font-family: 'digital';
+    font-weight: bold;
+    width: 65vmin;
+}

@@ -44,6 +44,12 @@ const sizeLookup = {
 
 }
 
+const texts = ['welcome to minesweeper','right click the smiley face to change difficulty'];
+let count = 0;
+let index = 0;
+let currentText = '';
+let letter = '';
+
 /*----- app's state (variables) -----*/
 let board, winner, mines, timer, hold, size, cellEl;
 
@@ -55,6 +61,7 @@ const boardEl = document.getElementById('boardborder');
 const menuEl = document.getElementById('menu');
 const digitalEl = document.getElementById('count');
 const timerEl = document.getElementById('timer');
+const textEl = document.querySelector('.typing')
 
 
 
@@ -90,6 +97,7 @@ init();
 
 function difficulty(evt){
     if (evt.ctrlKey || evt.which === 3){
+        textEl.style.display = "none";
         buttonEl.style.display = "none";
         difficultyEl.forEach(button => { button.style.display = "flex" });
         if (size === 10){
@@ -115,6 +123,7 @@ function difficulty(evt){
 function init(x) {
     if (!x) {
         size = 20;
+        type();
     }
     genBoard();
     board = new Array(size * size).fill().map(u => ({mine: false, adjMines: 0, revealed: false, flagged: false, boom: false}));
@@ -125,6 +134,31 @@ function init(x) {
     clearInterval(timer);
     hold = true
     render();
+}
+
+function type() {
+    if (count === 1) {
+        setTimeout(type2, 3000);
+        return
+    }
+    currentText = texts[0];
+    letter = currentText.slice(0, ++index);
+    textEl.textContent = letter;
+    if (letter.length === currentText.length) {
+        count ++;
+        index = 0;
+    }
+    setTimeout(type, 100);
+}
+
+function type2() {
+    if (count === 2) {
+        return
+    }
+    currentText = texts[1];
+    letter = currentText.slice(0, ++index);
+    textEl.textContent = letter;
+    setTimeout(type2, 150);
 }
 
 function genBoard(){
@@ -167,34 +201,34 @@ function setMines(num) {
 }
 
 function setAdj() {
-    board.forEach(function (object, index) {
+    board.forEach(function (object, idx) {
         if (object.mine) return;
         let numAdj = 0;
-        if (index % size !== 0 && (index - size) >= 0) {
-            if (board[index - size - 1].mine) numAdj += 1;
+        if (idx % size !== 0 && (idx - size) >= 0) {
+            if (board[idx - size - 1].mine) numAdj += 1;
         }; //northwest
-        if ((index - size) >= 0) {
-            if (board[index - size].mine) numAdj += 1;
+        if ((idx - size) >= 0) {
+            if (board[idx - size].mine) numAdj += 1;
         }; //north
-        if (index % size < (size - 1) && (index - size) >= 0) {
-            if (board[index - size + 1].mine) numAdj += 1;
+        if (idx % size < (size - 1) && (idx - size) >= 0) {
+            if (board[idx - size + 1].mine) numAdj += 1;
         }; //northeast
-        if ((index % size) < (size - 1)) {
-            if (board[index + 1].mine) numAdj += 1;
+        if ((idx % size) < (size - 1)) {
+            if (board[idx + 1].mine) numAdj += 1;
         }; //east
-        if ((index % size) < (size - 1) && (index + size) < board.length) {
-            if (board[index + size + 1].mine) numAdj += 1;
+        if ((idx % size) < (size - 1) && (idx + size) < board.length) {
+            if (board[idx + size + 1].mine) numAdj += 1;
         }; //southeast
-        if ((index + size) < board.length) {
-            if (board[index + size].mine) numAdj += 1;
+        if ((idx + size) < board.length) {
+            if (board[idx + size].mine) numAdj += 1;
         }; //south
-        if ((index + size) < board.length && index % size !== 0) {
-            if (board[index + size - 1].mine) numAdj += 1;
+        if ((idx + size) < board.length && idx % size !== 0) {
+            if (board[idx + size - 1].mine) numAdj += 1;
         }; //southwest
-        if (index % size !== 0) {
-            if (board[index - 1].mine) numAdj += 1;
+        if (idx % size !== 0) {
+            if (board[idx - 1].mine) numAdj += 1;
         }; //west
-        board[index].adjMines = numAdj;
+        board[idx].adjMines = numAdj;
     });
 }
 
@@ -205,10 +239,10 @@ function clickCell(evt) {
     if (board[idx].flagged) return;
     if (board.filter(cell => cell.revealed).length === 0) startTimer();
     if (board[idx].mine){
-        board.forEach(function (object, index) {
-            if (object.flagged && object.mine) board[index].revealed = false;
-            else if (object.flagged && !object.mine) board[index].mine = true, board[index].revealed = true;
-            else if (object.mine) board[index].revealed = true;
+        board.forEach(function (object, idx) {
+            if (object.flagged && object.mine) board[idx].revealed = false;
+            else if (object.flagged && !object.mine) board[idx].mine = true, board[idx].revealed = true;
+            else if (object.mine) board[idx].revealed = true;
         });
         board[idx].boom = true;
     } else { 
@@ -225,8 +259,8 @@ function startTimer() {
     timer = setInterval(function () {
         pad(++sec)
         let array = Array.from(String(`${sec}`.padStart(3, '0')), Number);
-        array.forEach(function (number, index) {
-            const timerCell = document.getElementById(`tnum${index}`);
+        array.forEach(function (number, idx) {
+            const timerCell = document.getElementById(`tnum${idx}`);
             timerCell.style.backgroundImage = `url(${numLookup[number]})`
         })
     }, 1000);
@@ -290,12 +324,12 @@ function holdOn(evt) {
 }
 
 function render() {
-    board.forEach(function (object, index) {
-        const cell = document.getElementById(`b${index}`);
+    board.forEach(function (object, idx) {
+        const cell = document.getElementById(`b${idx}`);
         cell.removeAttribute('style');
         cell.innerHTML = '';
         cell.textContent = '';
-        if (board[index].adjMines) cell.textContent = object.adjMines;
+        if (board[idx].adjMines) cell.textContent = object.adjMines;
         if (!object.revealed){
             cell.classList.add('unrevealed');
             cell.classList.replace('revealed','unrevealed');
@@ -313,14 +347,14 @@ function render() {
     });
     if ((mines - board.filter(cell => cell.flagged).length) >= 0){
         let array = Array.from(String(`${mines - board.filter(cell => cell.flagged).length}`.padStart(3, '0')), Number);
-        array.forEach(function(number, index){
-            const bombCell = document.getElementById(`bnum${index}`);
+        array.forEach(function(number, idx){
+            const bombCell = document.getElementById(`bnum${idx}`);
             bombCell.style.backgroundImage = `url(${numLookup[number]})`
         })
     } else if ((mines - board.filter(cell => cell.flagged).length) < 0){
         let array = Array.from(String(`-0${(mines - board.filter(cell => cell.flagged).length)*-1}`, Number));
-        array.forEach(function (number, index) {
-            const bombCell = document.getElementById(`bnum${index}`);
+        array.forEach(function (number, idx) {
+            const bombCell = document.getElementById(`bnum${idx}`);
             bombCell.style.backgroundImage = `url(${numLookup[number]})`
         })
     }

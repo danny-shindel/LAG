@@ -61,7 +61,7 @@ const boardEl = document.getElementById('boardborder');
 const menuEl = document.getElementById('menu');
 const digitalEl = document.getElementById('count');
 const timerEl = document.getElementById('timer');
-const textEl = document.querySelector('.typing')
+const textEl = document.querySelector('.typing');
 
 
 

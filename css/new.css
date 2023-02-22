@@ -1,0 +1,107 @@
+@font-face {
+  font-family: "work";
+  src: url("../font/WorkSans-VariableFont_wght.ttf");
+}
+
+body {
+  font-family: "work";
+  display: flex;
+  margin: 0;
+  height: 100%;
+}
+
+#nav {
+  height: 100%;
+  /* background-color: rgb(222, 209, 128); */
+  width: 13vw;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-evenly; */
+  padding-top: 10vh;
+  padding-bottom: 40%;
+  padding-left: 2vw;
+}
+
+#nav {
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  /* width: 160px;  */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  /* background-color: yellow; */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+}
+
+#links a {
+  opacity: 0.3;
+  padding-left: 1vw;
+  text-decoration: none;
+  color: black;
+}
+
+#logo {
+  opacity: 0.3;
+}
+
+#logo:hover {
+  opacity: 1;
+}
+
+#links a:hover {
+  opacity: 1;
+}
+
+#links {
+  /* background-color: aqua; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  /* margin-top: 5vh; */
+  height: 70vh;
+}
+
+#image {
+  /* background-color: black; */
+  height: 13vh;
+  width: 20vh;
+}
+
+#logo {
+  width: 100%;
+  object-fit: cover;
+}
+
+#content {
+  display: flex;
+  margin-left: 15vw;
+  margin-right: 15vw;
+}
+
+#about {
+  width: 100%;
+  /* background-color: red; */
+  padding: 25vh 15vw 0 15vw;
+  font-size: 70%;
+}
+
+#current {
+  width: 15vw;
+  text-align: center;
+  padding-top: 20vh;
+  overflow-y: hidden;
+  height: 100%;
+  right: 0;
+  position: fixed;
+  /* background: yellow; */
+}
+
+.archive {
+  margin-bottom: 5vh;
+}
+
+.archive img {
+  object-fit: cover;
+  width: 100%;
+}

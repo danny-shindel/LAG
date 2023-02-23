@@ -12,32 +12,53 @@
     />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link rel="stylesheet" href="css/new.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <script defer src="js/main.js"></script>
   </head>
   <body>
-    <div id="nav">
-      <div id="image">
-        <a href="/">
-          <img id="logo" src="/images/Logo.png" />
-        </a>
+    <div class="topnav">
+      <a href="/" class="active">
+        <img id="logo_mobile" src="/images/Logo_mobile.png" />
+        <img id="logo" src="/images/Logo.png" />
+      </a>
+      <!-- Navigation links (hidden by default) -->
+      <div id="myLinks">
+        <a id="active"><h4>Projects</h4></a>
+        <a href="/about.html"><h4>About</h4></a>
+        <a href="/contact.html"><h4>Contact</h4></a>
+        <a href="/archive.html"><h4>Archive</h4></a>
       </div>
-      <div id="links">
-        <a id="active" style="opacity: 1"><h3>Projects</h3></a>
-        <a href="/about.html"><h3>About</h3></a>
-        <a href="/contact.html"><h3>Contact</h3></a>
-        <a href="/archive.html"><h3>Archive</h3></a>
-      </div>
+      <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+      </a>
     </div>
     <div id="content">
       <div id="about">
-        <div class="archive">
-          <img src="/images/archive/archive_1.png" />
-        </div>
-        <div class="archive">
-          <img src="/images/archive/archive_2.png" />
-        </div>
-        <div class="archive">
-          <img src="/images/archive/archive_3.png" />
+        <div id="projects">
+          <a href="/dining_devices.html"
+            ><h2>Dining Devices</h2>
+            <img id="project_img" src="/images/archive/archive_1.png" />
+          </a>
+          <a href="/seating_devices.html"
+            ><h2>Seating Devices</h2>
+            <img id="project_img" src="/images/archive/archive_2.png" />
+          </a>
+          <a href="/storage_devices.html"
+            ><h2>Storage Devices</h2>
+            <img id="project_img" src="/images/archive/archive_3.png" />
+          </a>
+          <a href="/office_space.html"
+            ><h2>Office Space</h2>
+            <img id="project_img" src="/images/archive/archive_1.png"
+          /></a>
+          <a href="/fashion.html"
+            ><h2>Fashion</h2>
+            <img id="project_img" src="/images/archive/archive_2.png" />
+          </a>
         </div>
       </div>
       <div id="current"><h1>Projects</h1></div>

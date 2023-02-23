@@ -12,21 +12,29 @@
     />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link rel="stylesheet" href="css/new.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <script defer src="js/main.js"></script>
   </head>
   <body>
-    <div id="nav">
-      <div id="image">
-        <a href="/">
-          <img id="logo" src="/images/Logo.png" />
-        </a>
+    <div class="topnav">
+      <a href="/" class="active">
+        <img id="logo_mobile" src="/images/Logo_mobile.png" />
+        <img id="logo" src="/images/Logo.png" />
+      </a>
+      <!-- Navigation links (hidden by default) -->
+      <div id="myLinks">
+        <a href="/projects.html"><h4>Projects</h4></a>
+        <a id="active" style="opacity: 1"><h4>About</h4></a>
+        <a href="/contact.html"><h4>Contact</h4></a>
+        <a href="/archive.html"><h4>Archive</h4></a>
       </div>
-      <div id="links">
-        <a href="/projects.html"><h3>Projects</h3></a>
-        <a id="active" style="opacity: 1"><h3>About</h3></a>
-        <a href="/contact.html"><h3>Contact</h3></a>
-        <a href="/archive.html"><h3>Archive</h3></a>
-      </div>
+      <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+      </a>
     </div>
     <div id="content">
       <div id="about">

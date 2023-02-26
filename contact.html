@@ -22,15 +22,15 @@
     <div class="topnav">
       <a href="/" class="active">
         <img id="logo_mobile" src="/images/Logo_mobile.png" />
-        <img id="logo" src="/images/Logo.png" />
+        <img id="logo" src="/images/Logo_mobile.png" />
       </a>
       <!-- Navigation links (hidden by default) -->
       <div id="myLinks">
         <a href="/projects.html"><h4>Projects</h4></a>
-        <a href="/about.html"><h4>About</h4></a>
-        <a id="active" style="opacity: 1"><h4>Contact</h4></a>
-        <a href="/archive.html"><h4>Archive</h4></a>
         <a href="/store.html"><h4>Store</h4></a>
+        <a href="/about.html"><h4>About</h4></a>
+        <a href="/archive.html"><h4>Archive</h4></a>
+        <a id="active" style="opacity: 1"><h4>Contact</h4></a>
       </div>
       <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
       <a href="javascript:void(0);" class="icon" onclick="myFunction()">
@@ -38,7 +38,7 @@
       </a>
     </div>
     <div id="content">
-      <div id="about_contact">
+      <div id="contact_container">
         <div id="contact_text">
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -49,37 +49,14 @@
             arcu dictum varius duis at. Ultricies mi quis hendrerit dolor magna.
             Ut tortor pretium viverra suspendisse potenti nullam ac tortor
             vitae. Pretium viverra suspendisse potenti nullam. Diam volutpat
-            commodo sed egestas egestas fringilla. Eros donec ac odio tempor.
-            Dolor magna eget est lorem ipsum dolor. Consequat interdum varius
-            sit amet mattis vulputate enim. Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-            labore et dolore magna aliqua. Tortor vitae purus faucibus ornare
-            suspendisse sed. Commodo elit at imperdiet dui accumsan sit amet.
-            Malesuada pellentesque elit eget gravida cum. In mollis nunc sed id
-            semper.Commodo elit at imperdiet dui accumsan sit amet. Malesuada
-            pellentesque elit eget gravida cum. In mollis nunc sed id
-            semper.Commodo elit at imperdiet dui accumsan sit amet. Malesuada
-            pellentesque elit eget gravida cum. In mollis nunc sed id
-            semper.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-            do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Tortor vitae purus faucibus ornare suspendisse sed. Commodo elit at
-            imperdiet dui accumsan sit amet. Malesuada pellentesque elit eget
-            gravida cum. In mollis nunc sed id semper. Vivamus at augue eget
-            arcu dictum varius duis at. Ultricies mi quis hendrerit dolor magna.
-            Ut tortor pretium viverra suspendisse potenti nullam ac tortor
-            vitae. Pretium viverra suspendisse potenti nullam. Diam volutpat
-            commodo sed egestas egestas fringilla. Eros donec ac odio tempor.
-            Dolor magna eget est lorem ipsum dolor.
+            commodo sed egestas egestas fringilla.
           </p>
         </div>
-        <div id="form_cont">
+        <div id="contact_form">
           <div id="form_text">
             <h3>Name</h3>
-            <br />
             <h3>Email</h3>
-            <br />
             <h3>Message</h3>
-            <br />
           </div>
           <form
             action="mailto:dannyshindel@gmail.com"
@@ -88,31 +65,23 @@
             name="EmailForm"
           >
             <input
-              id="input_text"
+              id="contact_input"
               type="text"
               size="19"
               name="Contact-Name"
-            /><br /><br />
-            <input
-              type="email"
-              id="input_text"
-              name="Contact-Email"
-            /><br /><br />
-            <textarea id="input_mess" name="Contact-Message" rows="6" cols="20">
-            </textarea
-            ><br /><br />
-            <button
-              id="form_button"
-              type="submit"
-              value="Submit"
-              style="margin-top: 3vh"
-            >
-              Send
-            </button>
+            />
+            <input type="email" id="contact_input" name="Contact-Email" />
+            <textarea
+              id="contact_message"
+              name="Contact-Message"
+              rows="6"
+              cols="20"
+            ></textarea>
+            <button id="form_button" type="submit" value="Submit">Send</button>
           </form>
         </div>
       </div>
-      <div id="current"><h1>Contact</h1></div>
+      <!-- <div id="current"><h1>Contact</h1></div> -->
     </div>
   </body>
 </html>

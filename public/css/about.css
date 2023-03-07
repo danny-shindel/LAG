@@ -1,0 +1,17 @@
+#about_container {
+  width: 100%;
+  padding: 0 15vw 0 15vw;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  font-size: 70%;
+  height: 100vh;
+}
+
+@media screen and (max-width: 1290px) {
+  #about_container {
+    padding: 3vh 5vh 5vh 5vh;
+    display: block;
+  }
+}

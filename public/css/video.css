@@ -10,7 +10,7 @@
   visibility: hidden;
   z-index: 2;
   padding: 0;
-  margin-left: 20vw;
+  /* margin-left: 20vw; */
 }
 
 @media (min-width: 40em) {

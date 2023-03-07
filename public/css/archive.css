@@ -1,0 +1,30 @@
+#archive_container {
+  padding: 15vh 15vw 0 15vw;
+  font-size: 70%;
+}
+
+.archive {
+  margin-bottom: 5vh;
+  display: flex;
+  justify-content: center;
+}
+
+.archive:last-child {
+  padding-bottom: 5vh;
+}
+
+.archive img {
+  object-fit: cover;
+  width: 60%;
+}
+
+@media screen and (max-width: 1290px) {
+  #archive_container {
+    padding: 3vh 5vh 5vh 5vh;
+  }
+
+  .archive img {
+    object-fit: cover;
+    width: 100%;
+  }
+}

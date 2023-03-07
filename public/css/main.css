@@ -79,43 +79,6 @@ body {
 
 /*************/
 
-/**** ARCHIVE ****/
-
-#archive_container {
-  /* width: 100%; */
-  /* background-color: red; */
-  padding: 15vh 15vw 0 15vw;
-  font-size: 70%;
-}
-
-.archive {
-  margin-bottom: 5vh;
-  display: flex;
-  justify-content: center;
-}
-
-.archive:last-child {
-  padding-bottom: 5vh;
-}
-
-.archive img {
-  object-fit: cover;
-  width: 60%;
-}
-
-@media screen and (max-width: 1290px) {
-  #archive_container {
-    padding: 3vh 5vh 5vh 5vh;
-  }
-
-  .archive img {
-    object-fit: cover;
-    width: 100%;
-  }
-}
-
-/*****************/
-
 /**** CURRENT ****/
 
 #current {
@@ -136,147 +99,6 @@ body {
 }
 
 /*****************/
-
-/**** CONTACT ****/
-
-#contact_container {
-  width: 100%;
-  padding: 0 15vw 0 15vw;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  flex-direction: column;
-  font-size: 70%;
-  height: 100%;
-  align-items: center;
-}
-
-#contact_text {
-  width: 45vw;
-  margin-bottom: 5vh;
-}
-
-#contact_form {
-  width: 45vw;
-  display: flex;
-  justify-content: center;
-  margin-top: 2vh;
-}
-
-#contact_input {
-  width: 100%;
-  height: 30px;
-  border-radius: 10px;
-  border-width: 1px;
-  margin-bottom: 3vh;
-  padding-left: 0.5vw;
-  font-family: work;
-}
-
-#contact_input:focus {
-  outline: none;
-}
-
-#contact_message {
-  padding-left: 0.5vw;
-  width: 100%;
-  height: 20vh;
-  border-radius: 10px;
-  border-width: 1px;
-  text-indent: 0px;
-  font-family: work;
-  resize: none;
-}
-
-#contact_message:focus {
-  outline: none;
-}
-
-#form_text {
-  padding-top: 0.6vh;
-  width: 10vw;
-}
-
-#form_text > h3 {
-  margin-top: 0;
-  margin-bottom: 7vh;
-}
-
-#contact_form > form > input {
-  margin-top: 0;
-  margin-bottom: 4vh;
-}
-
-#form_button {
-  font-family: work;
-  width: 4vw;
-  margin-top: 3vh;
-}
-
-@media screen and (max-width: 1290px) {
-  #contact_container {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding: 3vh 5vh 5vh 5vh;
-  }
-
-  #contact_text {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-  }
-
-  #contact_form {
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    margin-top: 3vh;
-  }
-
-  #contact_input {
-    width: 55vw;
-  }
-
-  #contact_message {
-    width: 55vw;
-    resize: none;
-  }
-
-  #form_button {
-    width: 20vw;
-  }
-
-  #contact_form > form {
-    width: auto;
-    display: flex;
-    flex-direction: column;
-  }
-}
-
-/*****************/
-
-/**** ABOUT ****/
-
-#about_container {
-  width: 100%;
-  padding: 0 15vw 0 15vw;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  flex-direction: column;
-  font-size: 70%;
-  height: 100vh;
-}
-
-@media screen and (max-width: 1290px) {
-  #about_container {
-    padding: 3vh 5vh 5vh 5vh;
-    display: block;
-  }
-}
-
-/***************/
 
 /**** PROJECT DETAIL ****/
 
@@ -381,16 +203,6 @@ body {
   /* width: 100%; */
 }
 
-#product_1 > p {
-  font-size: 1.5vh;
-}
-
-#ecommerce_button {
-  height: 60%;
-  cursor: pointer;
-  font-family: work;
-}
-
 #cart {
   position: absolute;
   top: 0px;
@@ -432,20 +244,6 @@ body {
   display: none;
 }
 
-#product_detail {
-  width: 100%;
-  height: 100%;
-  /* background-color: red; */
-  font-size: 70%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  /* margin-bottom: 5vh; */
-  overflow: hidden;
-  scroll-snap-align: start;
-}
-
 .slideshow-container > div > img {
   height: 40vh !important;
   width: 30vw !important;
@@ -484,13 +282,6 @@ body {
 
 .slideshow-container {
   height: 30vh;
-}
-
-#product_text {
-  width: 42vw;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 #links a:hover {
@@ -595,12 +386,6 @@ body {
   /* padding: 25vh 15vw 0 15vw; */
   font-size: 70%;
 }
-
-/* form {
-  width: 40vw;
-  background-color: yellow;
-  margin-left: 10vw;
-} */
 
 #project_images {
   overflow: scroll;
@@ -925,10 +710,6 @@ video {
     height: 40vh !important;
     width: 100% !important;
     object-fit: cover !important;
-  }
-
-  #product_text {
-    width: 100%;
   }
 
   #product:first-child {

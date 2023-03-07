@@ -313,6 +313,28 @@ body {
   justify-content: center;
 }
 
+.thumbnails {
+  position: absolute;
+  bottom: 8px;
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+}
+
+.thumbnails div {
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  /* background: #aaa; */
+  background: black;
+  border-radius: 100%;
+}
+
+.thumbnails div.highlighted {
+  background-color: yellow;
+  /* background-color: #777; */
+}
+
 .slides {
   margin: 0 16px;
   display: grid;
@@ -359,6 +381,71 @@ body {
   /* width: 100%; */
 }
 
+#product_1 > p {
+  font-size: 1.5vh;
+}
+
+#ecommerce_button {
+  height: 60%;
+  cursor: pointer;
+  font-family: work;
+}
+
+#cart {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  margin: 3vh;
+  font-family: work;
+  border: none;
+  /* background-color: rgb(0 0 0 / 10%); */
+  background-color: white;
+  font-size: 1.5vh;
+  padding: 2vh;
+  font-weight: 300;
+}
+
+#cart:hover {
+  cursor: pointer;
+  /* border: 1px black; */
+  text-decoration: underline;
+}
+
+#cart_mobile {
+  position: absolute;
+  top: 0px;
+  right: 8%;
+  margin: 3vh;
+  font-family: work;
+  border: none;
+  /* background-color: rgb(0 0 0 / 10%); */
+  background-color: white;
+  font-size: 1.8vh;
+  /* padding: 2vh; */
+  font-weight: 350;
+  padding: 14px 16px;
+  margin-top: 1.5vh;
+  z-index: 10;
+}
+
+#cart_mobile {
+  display: none;
+}
+
+#product_detail {
+  width: 100%;
+  height: 100%;
+  /* background-color: red; */
+  font-size: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* margin-bottom: 5vh; */
+  overflow: hidden;
+  scroll-snap-align: start;
+}
+
 .slideshow-container > div > img {
   height: 40vh !important;
   width: 30vw !important;
@@ -376,7 +463,11 @@ body {
 #ecommerce {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: flex-start;
+}
+
+#ecommerce > h3 {
+  margin: 0;
 }
 
 #product:first-child {
@@ -396,7 +487,10 @@ body {
 }
 
 #product_text {
-  width: 22vw;
+  width: 42vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 #links a:hover {
@@ -552,6 +646,11 @@ body {
 .slide-right {
   animation: 8s slide-right forwards;
 }
+
+video {
+  width: 20vw;
+}
+
 @keyframes slide-right {
   from {
     margin-left: 0%;
@@ -576,11 +675,26 @@ body {
 
 .home-text {
   position: absolute;
-  margin-top: 40vh;
+  margin-top: 20vh;
   font-size: 1.3em;
   margin-right: 5vw;
   right: 0;
   width: 23vw;
+  padding: 3vw;
+}
+
+.home-text > a {
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+
+.home-text:hover {
+  background-color: black;
+}
+
+.home-text:hover > a {
+  color: white;
 }
 
 ::-webkit-scrollbar {
@@ -606,6 +720,13 @@ body {
 /* MOBILE */
 
 @media screen and (max-width: 1290px) {
+  #cart_mobile {
+    display: block;
+  }
+
+  #cart {
+    display: none;
+  }
   /* Style the navigation menu */
   .topnav {
     overflow: hidden;

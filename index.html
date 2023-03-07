@@ -12,11 +12,13 @@
     />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/video.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <script defer src="js/main.js"></script>
+    <script src="<https://live.icecat.biz/js/live-current-2.js" async></script>
   </head>
   <body>
     <div class="topnav homenav">
@@ -43,9 +45,17 @@
         <div class="slide-right"></div>
         <div class="slide-down"></div>
         <div class="home-text">
-          LAG represents a multifaceted office; contextualizing architectual and
-          aesthetic discourse into art and object -be it large scale
-          intervention, or small scale device
+          <a data-modal="#modal-html5-video"
+            >LAG represents a multifaceted office; contextualizing architectual
+            and aesthetic discourse into art and object -be it large scale
+            intervention, or small scale device</a
+          >
+        </div>
+        <div class="modal" data-modal-window id="modal-html5-video">
+          <video style="max-width: 80vw">
+            <source src="/images/seinfield.mp4" type="video/mp4" />
+          </video>
+          <!-- <button data-modal-close>Close</button> -->
         </div>
         <p style="color: white">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -62,4 +72,5 @@
       </div>
     </div>
   </body>
+  <script src="js/custom.js"></script>
 </html>

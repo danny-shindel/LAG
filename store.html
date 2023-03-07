@@ -31,17 +31,63 @@
         <a href="/about.html"><h4>About</h4></a>
         <a href="/store.html"><h4>Archive</h4></a>
         <a href="/contact.html"><h4>Contact</h4></a>
+        <!-- <a class="snipcart-checkout" id="cart_mobile"
+          >Cart ( <span class="snipcart-items-count"></span> )</a
+        > -->
+        <!-- <button class="snipcart-checkout" id="cart">
+          Shopping Cart ( <span class="snipcart-items-count"></span> )
+        </button> -->
       </div>
       <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
       <a href="javascript:void(0);" class="icon" onclick="myFunction()">
         <i class="fa fa-bars"></i>
       </a>
     </div>
-    <div id="content_product">
-      <div id="product_cont">
-        <div id="product">
+    <div id="content">
+      <button class="snipcart-checkout" id="cart">
+        Shopping Cart ( <span class="snipcart-items-count"></span> )
+      </button>
+      <button class="snipcart-checkout" id="cart_mobile">
+        Cart ( <span class="snipcart-items-count"></span> )
+      </button>
+      <div id="project_container">
+        <div id="product_detail">
           <div id="product_text">
-            <h3>Product 1</h3>
+            <div id="product_1">
+              <h2>Nesting Coasters</h2>
+              <p>Made from solid teak.</p>
+              <p>$120</p>
+            </div>
+            <!-- <h2>Nesting Coasters</h2>
+            <p>Made from solid teak.</p>
+            <p>$120</p> -->
+            <button
+              id="ecommerce_button"
+              class="snipcart-add-item"
+              data-item-id="coasters"
+              data-item-price="120.00"
+              data-item-description="High-quality replica of The Starry Night by the Dutch post-impressionist painter Vincent van Gogh."
+              data-item-image="/images/store/coasters/coasters001.jpg"
+              data-item-name="Coasters"
+            >
+              Add to Cart
+            </button>
+          </div>
+          <div class="gallery-container">
+            <div class="thumbnails"></div>
+            <div class="slides">
+              <div>
+                <img src="/images/store/coasters/coasters001.jpg" />
+              </div>
+              <div>
+                <img src="/images/store/coasters/coasters002.jpg" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="project_detail">
+          <div id="project_text">
+            <h2>Product 1</h2>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Tortor
@@ -65,61 +111,18 @@
               </button>
             </div>
           </div>
-          <div class="slideshow-container">
-            <div class="mySlides1">
-              <img src="/images/archive/archive_1.png" />
+          <div class="gallery-container">
+            <div class="slides">
+              <div>
+                <img src="/images/projects/surfaces/teak_01/teak001.jpeg" />
+              </div>
+              <div>
+                <img src="/images/projects/surfaces/teak_01/teak002.jpeg" />
+              </div>
+              <div>
+                <img src="/images/projects/surfaces/teak_01/teak003.jpeg" />
+              </div>
             </div>
-
-            <div class="mySlides1">
-              <img src="/images/archive/archive_2.png" />
-            </div>
-
-            <div class="mySlides1">
-              <img src="/images/archive/archive_3.png" />
-            </div>
-
-            <a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
-            <a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
-          </div>
-        </div>
-        <div id="product">
-          <div id="product_text">
-            <h3>Product 1</h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Tortor
-              vitae purus faucibus ornare suspendisse sed. Commodo elit at
-              imperdiet dui accumsan sit amet.
-            </p>
-            <div id="ecommerce">
-              <h3>9.99</h3>
-              <button
-                class="snipcart-add-item"
-                data-item-id="starry-night"
-                data-item-price="79.99"
-                data-item-description="High-quality replica of The Starry Night by the Dutch post-impressionist painter Vincent van Gogh."
-                data-item-image="/assets/images/starry-night.jpg"
-                data-item-name="The Starry Night"
-              >
-                Add to cart
-              </button>
-            </div>
-          </div>
-          <div class="slideshow-container">
-            <div class="mySlides2">
-              <img src="/images/archive/archive_2.png" />
-            </div>
-
-            <div class="mySlides2">
-              <img src="/images/archive/archive_3.png" />
-            </div>
-
-            <div class="mySlides2">
-              <img src="/images/archive/archive_1.png" />
-            </div>
-
-            <a class="prev" onclick="plusSlides(-1, 1)">&#10094;</a>
-            <a class="next" onclick="plusSlides(1, 1)">&#10095;</a>
           </div>
         </div>
       </div>
@@ -128,7 +131,7 @@
   <script>
     window.SnipcartSettings = {
       publicApiKey:
-        "YzJlMDQwYTMtNmViYi00NDA5LTkyY2MtY2IyMWUyNTAxZThlNjM4MTI4MDE1OTA2MTE2Mjg2",
+        "NGM4YzRjNGYtZjJjYS00NWMxLWI4ZDEtODNlZjg1MjJkMTM2NjM4MTMwNTkxNzE3NTUxNTMz",
       loadStrategy: "on-user-interaction",
       modalStyle: "side",
     };

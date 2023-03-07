@@ -3,6 +3,6 @@
     "prettier": "2.8.4"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "node /js/main.js"
   }
 }

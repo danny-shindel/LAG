@@ -21,23 +21,27 @@
   </head>
   <body>
     <div class="topnav">
-      <a href="/" class="active">
-        <img id="logo_mobile" src="/images/Logo_mobile.png" />
-        <img id="logo" src="/images/Logo_mobile.png" />
+      <a href="../index.html" class="active">
+        <img id="logo_mobile" src="../images/Logo_mobile.png" />
+        <img id="logo" src="../images/Logo_mobile.png" />
       </a>
-      <!-- Navigation links (hidden by default) -->
       <div id="myLinks">
-        <a href="/projects.html"><h4>Projects</h4></a>
-        <a href="/store.html"><h4>Store</h4></a>
-        <a href="/about.html"><h4>About</h4></a>
-        <a href="/archive.html"><h4>Archive</h4></a>
-        <a href="/contact.html"><h4>Contact</h4></a>
+        <a href="../projects.html"><h4>Projects</h4></a>
+        <a href="../store.html"><h4>Store</h4></a>
+        <a href="../about.html"><h4>About</h4></a>
+        <a href="../archive.html"><h4>Archive</h4></a>
+        <a href="../contact.html"><h4>Contact</h4></a>
       </div>
-      <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
       <a href="javascript:void(0);" class="icon" onclick="myFunction()">
         <i class="fa fa-bars"></i>
       </a>
     </div>
+    <button class="snipcart-checkout" id="cart">
+      Shopping Cart ( <span class="snipcart-items-count"></span> )
+    </button>
+    <button class="snipcart-checkout" id="cart_mobile">
+      Cart ( <span class="snipcart-items-count"></span> )
+    </button>
     <div id="content">
       <div id="project_container">
         <div id="project_detail">
@@ -55,13 +59,13 @@
             <div class="thumbnails"></div>
             <div class="slides">
               <div>
-                <img src="/images/projects/storage/blue/blue001.jpeg" />
+                <img src="../images/projects/storage/blue/blue001.jpeg" />
               </div>
               <div>
-                <img src="/images/projects/storage/blue/blue002.jpeg" />
+                <img src="../images/projects/storage/blue/blue002.jpeg" />
               </div>
               <div>
-                <img src="/images/projects/storage/blue/blue003.jpeg" />
+                <img src="../images/projects/storage/blue/blue003.jpeg" />
               </div>
             </div>
           </div>
@@ -78,10 +82,10 @@
             <p id="content_year">2022</p>
           </div>
           <div class="gallery-container">
-            <div class="thumbnails"></div>
+            <!-- <div class="thumbnails"></div> -->
             <div class="slides">
               <div>
-                <img src="/images/projects/storage/murphy/murphy001.jpeg" />
+                <img src="../images/projects/storage/murphy/murphy001.jpeg" />
               </div>
             </div>
           </div>
@@ -89,4 +93,113 @@
       </div>
     </div>
   </body>
+  <script>
+    window.SnipcartSettings = {
+      publicApiKey:
+        "NGM4YzRjNGYtZjJjYS00NWMxLWI4ZDEtODNlZjg1MjJkMTM2NjM4MTMwNTkxNzE3NTUxNTMz",
+      loadStrategy: "on-user-interaction",
+      modalStyle: "side",
+    };
+
+    (function () {
+      var c, d;
+      (d = (c = window.SnipcartSettings).version) != null ||
+        (c.version = "3.0");
+      var s, S;
+      (S = (s = window.SnipcartSettings).timeoutDuration) != null ||
+        (s.timeoutDuration = 2750);
+      var l, p;
+      (p = (l = window.SnipcartSettings).domain) != null ||
+        (l.domain = "cdn.snipcart.com");
+      var w, u;
+      (u = (w = window.SnipcartSettings).protocol) != null ||
+        (w.protocol = "https");
+      var m, g;
+      (g = (m = window.SnipcartSettings).loadCSS) != null || (m.loadCSS = !0);
+      var y =
+          window.SnipcartSettings.version.includes("v3.0.0-ci") ||
+          (window.SnipcartSettings.version != "3.0" &&
+            window.SnipcartSettings.version.localeCompare("3.4.0", void 0, {
+              numeric: !0,
+              sensitivity: "base",
+            }) === -1),
+        f = ["focus", "mouseover", "touchmove", "scroll", "keydown"];
+      window.LoadSnipcart = o;
+      document.readyState === "loading"
+        ? document.addEventListener("DOMContentLoaded", r)
+        : r();
+      function r() {
+        window.SnipcartSettings.loadStrategy
+          ? window.SnipcartSettings.loadStrategy === "on-user-interaction" &&
+            (f.forEach(function (t) {
+              return document.addEventListener(t, o);
+            }),
+            setTimeout(o, window.SnipcartSettings.timeoutDuration))
+          : o();
+      }
+      var a = !1;
+      function o() {
+        if (a) return;
+        a = !0;
+        let t = document.getElementsByTagName("head")[0],
+          n = document.querySelector("#snipcart"),
+          i = document.querySelector(
+            'src[src^="'
+              .concat(window.SnipcartSettings.protocol, "://")
+              .concat(window.SnipcartSettings.domain, '"][src$="snipcart.js"]')
+          ),
+          e = document.querySelector(
+            'link[href^="'
+              .concat(window.SnipcartSettings.protocol, "://")
+              .concat(
+                window.SnipcartSettings.domain,
+                '"][href$="snipcart.css"]'
+              )
+          );
+        n ||
+          ((n = document.createElement("div")),
+          (n.id = "snipcart"),
+          n.setAttribute("hidden", "true"),
+          document.body.appendChild(n)),
+          h(n),
+          i ||
+            ((i = document.createElement("script")),
+            (i.src = ""
+              .concat(window.SnipcartSettings.protocol, "://")
+              .concat(window.SnipcartSettings.domain, "/themes/v")
+              .concat(window.SnipcartSettings.version, "/default/snipcart.js")),
+            (i.async = !0),
+            t.appendChild(i)),
+          !e &&
+            window.SnipcartSettings.loadCSS &&
+            ((e = document.createElement("link")),
+            (e.rel = "stylesheet"),
+            (e.type = "text/css"),
+            (e.href = ""
+              .concat(window.SnipcartSettings.protocol, "://")
+              .concat(window.SnipcartSettings.domain, "/themes/v")
+              .concat(
+                window.SnipcartSettings.version,
+                "/default/snipcart.css"
+              )),
+            t.prepend(e)),
+          f.forEach(function (v) {
+            return document.removeEventListener(v, o);
+          });
+      }
+      function h(t) {
+        !y ||
+          ((t.dataset.apiKey = window.SnipcartSettings.publicApiKey),
+          window.SnipcartSettings.addProductBehavior &&
+            (t.dataset.configAddProductBehavior =
+              window.SnipcartSettings.addProductBehavior),
+          window.SnipcartSettings.modalStyle &&
+            (t.dataset.configModalStyle = window.SnipcartSettings.modalStyle),
+          window.SnipcartSettings.currency &&
+            (t.dataset.currency = window.SnipcartSettings.currency),
+          window.SnipcartSettings.templatesUrl &&
+            (t.dataset.templatesUrl = window.SnipcartSettings.templatesUrl));
+      }
+    })();
+  </script>
 </html>

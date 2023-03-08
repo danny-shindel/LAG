@@ -12,9 +12,17 @@
 }
 
 #ecommerce_button {
-  height: 60%;
+  height: 80%;
   cursor: pointer;
   font-family: work;
+  color: black;
+  border-radius: 0.3vh;
+  border: 1px solid black;
+  padding: 0 2vw 0 2vw;
+}
+
+#ecommerce_button:hover {
+  background-color: #e3e3e3;
 }
 
 #product_detail {
@@ -45,5 +53,13 @@
   }
   #product_text {
     width: 100%;
+  }
+
+  #product_detail {
+    padding-bottom: 20vh;
+  }
+
+  #ecommerce_button {
+    padding: 0 5vw 0 5vw;
   }
 }

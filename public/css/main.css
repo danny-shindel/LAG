@@ -28,7 +28,6 @@ body {
 /**** NAV ****/
 
 .topnav {
-  /* background-color: yellow; */
   width: 9vw;
   padding-left: 2vw;
   padding-top: 3vh;
@@ -79,25 +78,6 @@ body {
 
 /*************/
 
-/**** CURRENT ****/
-
-#current {
-  width: 15vw;
-  text-align: end;
-  padding-top: 23vh;
-  overflow-y: hidden;
-  height: 100%;
-  right: 0;
-  position: fixed;
-  padding-right: 5vw;
-}
-
-@media screen and (max-width: 1290px) {
-  #current {
-    display: none;
-  }
-}
-
 /*****************/
 
 /**** PROJECT DETAIL ****/
@@ -144,17 +124,16 @@ body {
 }
 
 .thumbnails div {
-  width: 15px;
-  height: 15px;
+  width: 8px;
+  height: 8px;
   cursor: pointer;
-  /* background: #aaa; */
-  background: black;
+  background: #999999;
   border-radius: 100%;
 }
 
 .thumbnails div.highlighted {
-  background-color: yellow;
-  /* background-color: #777; */
+  /* background-color: #999999; */
+  background: white;
 }
 
 .slides {
@@ -215,11 +194,11 @@ body {
   font-size: 1.5vh;
   padding: 2vh;
   font-weight: 300;
+  color: black;
 }
 
 #cart:hover {
   cursor: pointer;
-  /* border: 1px black; */
   text-decoration: underline;
 }
 
@@ -230,14 +209,13 @@ body {
   margin: 3vh;
   font-family: work;
   border: none;
-  /* background-color: rgb(0 0 0 / 10%); */
   background-color: white;
   font-size: 1.8vh;
-  /* padding: 2vh; */
   font-weight: 350;
   padding: 14px 16px;
   margin-top: 1.5vh;
   z-index: 10;
+  color: black;
 }
 
 #cart_mobile {
@@ -350,12 +328,6 @@ body {
   height: 100vh;
 }
 
-#content_home {
-  display: flex;
-  margin-left: 15vw;
-  position: fixed;
-}
-
 #project_img {
   position: fixed;
   top: 0;
@@ -380,13 +352,6 @@ body {
   font-size: 70%;
 }
 
-#about_home {
-  width: 100%;
-  /* background-color: red; */
-  /* padding: 25vh 15vw 0 15vw; */
-  font-size: 70%;
-}
-
 #project_images {
   overflow: scroll;
   right: -17px;
@@ -396,90 +361,6 @@ body {
 #project_images > img {
   width: 40vw;
   margin-bottom: 4vh;
-}
-
-/* HOMEPAGE */
-
-.box {
-  width: 100vw;
-  height: 100vh;
-  border: solid 1vh #000;
-  border-color: #000;
-  border-radius: 15vh 0 0 0;
-  position: absolute;
-  margin-top: 50vh;
-  margin-left: 5vw;
-  overflow: hidden;
-  border-style: dashed;
-}
-
-.slide-right {
-  width: 100vw;
-  height: 10vh;
-  background-color: white;
-  position: absolute;
-  margin-top: 45vh;
-}
-
-.slide-down {
-  width: 10vw;
-  height: 100vh;
-  background-color: white;
-  position: absolute;
-}
-
-.slide-right {
-  animation: 8s slide-right forwards;
-}
-
-video {
-  width: 20vw;
-}
-
-@keyframes slide-right {
-  from {
-    margin-left: 0%;
-  }
-  to {
-    margin-left: -150%;
-  }
-}
-
-.slide-down {
-  animation: 8s slide-down forwards;
-  animation-delay: 2.1s;
-}
-@keyframes slide-down {
-  from {
-    margin-bottom: 0%;
-  }
-  to {
-    margin-top: 150%;
-  }
-}
-
-.home-text {
-  position: absolute;
-  margin-top: 20vh;
-  font-size: 1.3em;
-  margin-right: 5vw;
-  right: 0;
-  width: 23vw;
-  padding: 3vw;
-}
-
-.home-text > a {
-  text-decoration: none;
-  color: black;
-  cursor: pointer;
-}
-
-.home-text:hover {
-  background-color: black;
-}
-
-.home-text:hover > a {
-  color: white;
 }
 
 ::-webkit-scrollbar {
@@ -612,70 +493,13 @@ video {
     padding: 0;
   }
 
-  .home-text {
-    margin-top: 30vh;
-    width: 90vw;
-  }
-
-  .box {
-    width: 100vw;
-    height: 100vh;
-    border: solid 1vh #000;
-    border-color: #000;
-    border-radius: 15vh 0 0 0;
-    position: absolute;
-    margin-top: 50vh;
-    margin-left: 5vw;
-    overflow: hidden;
-    border-style: dashed;
-  }
-
-  .slide-right {
-    width: 100vw;
-    height: 10vh;
-    background-color: white;
-    position: absolute;
-    margin-top: 45vh;
-  }
-
-  .slide-down {
-    width: 15vw;
-    height: 100vh;
-    background-color: white;
-    position: absolute;
-  }
-
-  .slide-right {
-    animation: 8s slide-right forwards;
-  }
-  @keyframes slide-right {
-    from {
-      margin-left: 0%;
-    }
-    to {
-      margin-left: -200%;
-    }
-  }
-
-  .slide-down {
-    animation: 8s slide-down forwards;
-    animation-delay: 0.5s;
-  }
-  @keyframes slide-down {
-    from {
-      margin-bottom: 0%;
-    }
-    to {
-      margin-top: 300%;
-    }
-  }
-
   #project_detail {
     display: flex;
     flex-direction: column;
     height: 100vh;
     margin-bottom: 0;
-    padding-bottom: 10vh;
+    padding-bottom: 25vh;
+    justify-content: center;
   }
 
   #project_container {
@@ -724,7 +548,7 @@ video {
     width: 100%;
     margin-right: 0;
     overflow: visible;
-    margin-bottom: 2vh;
+    margin-bottom: 0.5vh;
     height: auto;
   }
 
@@ -754,50 +578,3 @@ video {
 * {
   box-sizing: border-box;
 }
-.mySlides1,
-.mySlides2 {
-  display: none;
-}
-img {
-  vertical-align: middle;
-}
-
-/* Slideshow container */
-.slideshow-container {
-  max-width: 1000px;
-  width: 30vw;
-  position: relative;
-  /* margin: auto; */
-}
-
-/* Next & previous buttons */
-.prev,
-.next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  padding: 16px;
-  margin-top: -22px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-}
-
-/* Position the "next button" to the right */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-/* On hover, add a grey background color */
-.prev:hover,
-.next:hover {
-  background-color: #f1f1f1;
-  color: black;
-}
-
-/* GALLERY */

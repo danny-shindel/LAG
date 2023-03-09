@@ -1,154 +1,66 @@
 #content_home {
-  display: flex;
-  margin-left: 15vw;
+  margin-left: 9vw;
+  width: 91vw;
+  height: 100vh;
   position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
-#about_home {
-  width: 100%;
-  /* background-color: red; */
-  /* padding: 25vh 15vw 0 15vw; */
-  font-size: 70%;
+#text_video_container {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 5vh;
+  padding-bottom: 5vh;
 }
 
-.box {
-  width: 100vw;
-  height: 100vh;
-  border: solid 1vh #000;
-  border-color: #000;
-  border-radius: 15vh 0 0 0;
-  position: absolute;
-  margin-top: 50vh;
-  margin-left: 5vw;
-  overflow: hidden;
-  border-style: dashed;
-}
-
-.slide-right {
-  width: 100vw;
-  height: 10vh;
-  background-color: white;
-  position: absolute;
-  margin-top: 45vh;
-}
-
-.slide-down {
-  width: 10vw;
-  height: 100vh;
-  background-color: white;
-  position: absolute;
-}
-
-.slide-right {
-  animation: 8s slide-right forwards;
-}
-
-video {
-  width: 20vw;
-}
-
-@keyframes slide-right {
-  from {
-    margin-left: 0%;
-  }
-  to {
-    margin-left: -150%;
-  }
-}
-
-.slide-down {
-  animation: 8s slide-down forwards;
-  animation-delay: 2.1s;
-}
-@keyframes slide-down {
-  from {
-    margin-bottom: 0%;
-  }
-  to {
-    margin-top: 150%;
-  }
-}
-
-.home-text {
-  position: absolute;
-  margin-top: 20vh;
-  font-size: 1.3em;
-  margin-right: 5vw;
-  right: 0;
+#home_text {
   width: 23vw;
-  padding: 3vw;
-}
-
-.home-text > a {
+  padding: 3vh;
+  cursor: pointer;
   text-decoration: none;
   color: black;
-  cursor: pointer;
 }
 
-.home-text:hover {
+#home_text:hover {
   background-color: black;
-}
-
-.home-text:hover > a {
   color: white;
 }
 
+#line_container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#line {
+  height: 50vh;
+  width: 80vw;
+  border-left: solid 0.15vh #000;
+  border-top: solid 0.15vh #000;
+  border-radius: 15vh 0 0 0;
+}
+
+#arcade {
+  height: 20vh;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-right: 2vh;
+}
+
+#cart {
+  z-index: 2;
+}
+
 @media screen and (max-width: 1290px) {
-  .home-text {
+  #home_text {
     margin-top: 30vh;
     width: 90vw;
+    pointer-events: none;
   }
 
-  .box {
-    width: 100vw;
-    height: 100vh;
-    border: solid 1vh #000;
-    border-color: #000;
-    border-radius: 15vh 0 0 0;
-    position: absolute;
-    margin-top: 50vh;
-    margin-left: 5vw;
-    overflow: hidden;
-    border-style: dashed;
-  }
-
-  .slide-right {
-    width: 100vw;
-    height: 10vh;
-    background-color: white;
-    position: absolute;
-    margin-top: 45vh;
-  }
-
-  .slide-down {
-    width: 15vw;
-    height: 100vh;
-    background-color: white;
-    position: absolute;
-  }
-
-  .slide-right {
-    animation: 8s slide-right forwards;
-  }
-  @keyframes slide-right {
-    from {
-      margin-left: 0%;
-    }
-    to {
-      margin-left: -200%;
-    }
-  }
-
-  .slide-down {
-    animation: 8s slide-down forwards;
-    animation-delay: 0.5s;
-  }
-  @keyframes slide-down {
-    from {
-      margin-bottom: 0%;
-    }
-    to {
-      margin-top: 300%;
-    }
+  #arcade {
+    margin-bottom: 15vh;
   }
 }

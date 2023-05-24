@@ -30,7 +30,9 @@
         <a href="store.html"><h4>Store</h4></a>
         <a href="about.html"><h4>About</h4></a>
         <a href="archive.html"><h4>Archive</h4></a>
-        <a id="active" style="opacity: 1"><h4>Contact</h4></a>
+        <a id="active" style="opacity: 1" href="contact.html"
+          ><h4>Contact</h4></a
+        >
       </div>
       <a href="javascript:void(0);" class="icon" onclick="myFunction()">
         <i class="fa fa-bars"></i>
@@ -53,29 +55,7 @@
             dimensions, and any relevant references. Thank you.
           </p>
         </div>
-        <form
-          class="kwes-form"
-          action="https://kwesforms.com/api/foreign/forms/uVCA2KjtI445tYQVXF7h"
-          no-reload
-          success-message="Thank You!"
-          redirect="contact_thankyou.html"
-        >
-          <label for="name">Name</label>
-          <input type="text" name="name" rules="required" />
-          <br />
-          <label for="email">Email</label>
-          <input type="text" name="email" rules="email|required" />
-          <br />
-          <label for="message">Message</label>
-          <textarea
-            name="message"
-            rows="6"
-            cols="20"
-            rules="required"
-          ></textarea>
-          <br />
-          <button type="submit" style="display: block">Send</button>
-        </form>
+        <div id="thankyou"><h2>Thank you for your submission</h2></div>
       </div>
     </div>
     <script src="https://kwesforms.com/v2/kwes-script.js" defer></script>

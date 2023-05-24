@@ -46,7 +46,7 @@
   align-items: center;
 }
 
-@media screen and (max-width: 1290px) {
+@media screen and (max-width: 1270px) {
   #product_container {
     padding: 3vh 5vh 5vh 5vh;
     width: 100%;

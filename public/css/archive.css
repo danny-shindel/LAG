@@ -18,12 +18,12 @@
   width: 60%;
 }
 
-@media screen and (max-width: 1290px) {
+@media screen and (max-width: 1270px) {
   #archive_container {
     padding: 3vh 5vh 5vh 5vh;
   }
 
-  .archive img {
+  .archive > img {
     object-fit: cover;
     width: 100%;
   }

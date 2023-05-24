@@ -21,6 +21,7 @@
   cursor: pointer;
   text-decoration: none;
   color: black;
+  font-size: 1.8vh;
 }
 
 #home_text:hover {
@@ -53,7 +54,7 @@
   z-index: 2;
 }
 
-@media screen and (max-width: 1290px) {
+@media screen and (max-width: 1270px) {
   #home_text {
     margin-top: 30vh;
     width: 90vw;

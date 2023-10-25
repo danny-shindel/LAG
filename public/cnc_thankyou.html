@@ -12,7 +12,7 @@
     />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link rel="stylesheet" href="css/main.css" />
-    <link rel="stylesheet" href="css/contact.css" />
+    <link rel="stylesheet" href="css/cnc.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -27,10 +27,10 @@
       </a>
       <div id="myLinks">
         <a href="projects.html"><h4>Projects</h4></a>
-        <a href="cnc.html"><h4>CNC</h4></a>
+        <a id="active" style="opacity: 1"><h4>CNC</h4></a>
         <a href="about.html"><h4>About</h4></a>
         <a href="archive.html"><h4>Archive</h4></a>
-        <a id="active" style="opacity: 1"><h4>Contact</h4></a>
+        <a href="contact.html"><h4>Contact</h4></a>
         <a href="store.html"><h4>Store</h4></a>
       </div>
       <a href="javascript:void(0);" class="icon" onclick="myFunction()">
@@ -47,36 +47,29 @@
       <div id="contact_container">
         <div id="contact_text">
           <p>
-            Please contact us if you would like to know more about any of our
-            projects, pricing, or if you have any questions regarding your own
-            product or project. For new project inquiries, please include as
-            much information as you can, including but not limited to: material,
-            dimensions, and any relevant references. Thank you.
+            We have a SR-44 Stinger II CNC Machine. Made by CAMaster, in
+            Cartersville, Georgia USA.
+          </p>
+          <!-- <div
+            style="background-color: yellow; width: 30vw; height: 30vh"
+          ></div> -->
+          <p>The machine capabilities are as follows:</p>
+          <p>
+            5 HP HSD Manual Spindle<br />
+            Cutting Area - 49” x 49”<br />
+            Z Clearance - 7”<br />
+            Material Options - Hardwoods, Softwoods, Plywoods, Plastics<br />
+            Job Types - CNC cutting, Sign Making, Wood Engraving, 3D Milling<br />
+          </p>
+          <p>
+            Rates:<br />
+            Machine Time - $130/hr<br />
+            One Time Engineering Fee of $250<br />
+            Finishing Options Available (ie. Sanding, Painting, etc…) Upon
+            Request<br />
           </p>
         </div>
-        <form
-          class="kwes-form"
-          action="https://kwesforms.com/api/foreign/forms/uVCA2KjtI445tYQVXF7h"
-          no-reload
-          success-message="Thank You!"
-          redirect="contact_thankyou.html"
-        >
-          <label for="name">Name</label>
-          <input type="text" name="name" rules="required" />
-          <br />
-          <label for="email">Email</label>
-          <input type="text" name="email" rules="email|required" />
-          <br />
-          <label for="message">Message</label>
-          <textarea
-            name="message"
-            rows="6"
-            cols="20"
-            rules="required"
-          ></textarea>
-          <br />
-          <button type="submit" style="display: block">Send</button>
-        </form>
+        <div id="thankyou"><h2>Thank you for your submission</h2></div>
       </div>
     </div>
     <script src="https://kwesforms.com/v2/kwes-script.js" defer></script>

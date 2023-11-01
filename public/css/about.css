@@ -9,6 +9,14 @@
   height: 100vh;
 }
 
+#arcade {
+  height: 20vh;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-right: 2vh;
+}
+
 @media screen and (max-width: 1270px) {
   #about_container {
     padding: 3vh 5vh 5vh 5vh;

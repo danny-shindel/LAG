@@ -11,27 +11,27 @@
       href="https://i.imgur.com/iKGK9WJ.png"
     />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link rel="stylesheet" href="css/main.css" />
-    <link rel="stylesheet" href="css/projects.css" />
+    <link rel="stylesheet" href="../css/main.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <script defer src="js/main.js"></script>
+    <script defer src="../js/main.js"></script>
+    <script defer src="../js/slider.js"></script>
   </head>
   <body>
     <div class="topnav">
-      <a href="index.html" class="active">
-        <img id="logo_mobile" src="images/Logo_mobile.png" />
-        <img id="logo" src="images/Logo_mobile.png" />
+      <a href="../index.html" class="active">
+        <img id="logo_mobile" src="../images/Logo_mobile.png" />
+        <img id="logo" src="../images/Logo_mobile.png" />
       </a>
       <div id="myLinks">
-        <a id="active" style="opacity: 1"><h4>Projects</h4></a>
-        <a href="cnc.html"><h4>CNC</h4></a>
-        <a href="about.html"><h4>About</h4></a>
-        <a href="archive.html"><h4>Archive</h4></a>
-        <a href="contact.html"><h4>Contact</h4></a>
-        <!-- <a href="store.html"><h4>Store</h4></a> -->
+        <a href="../projects.html"><h4>Projects</h4></a>
+        <a href="../cnc.html"><h4>CNC</h4></a>
+        <a href="../about.html"><h4>About</h4></a>
+        <a href="../archive.html"><h4>Archive</h4></a>
+        <a href="../contact.html"><h4>Contact</h4></a>
+        <!-- <a href="../store.html"><h4>Store</h4></a> -->
       </div>
       <a href="javascript:void(0);" class="icon" onclick="myFunction()">
         <i class="fa fa-bars"></i>
@@ -44,55 +44,83 @@
       Cart ( <span class="snipcart-items-count"></span> )
     </button> -->
     <div id="content">
-      <div id="about">
-        <div id="projects">
-          <div id="project_img" class="project_box"></div>
-          <a href="projects/surfaces.html"
-            ><h2>Surfaces</h2>
-            <img
-              id="project_img"
-              src="images/projects/surfaces/surfaces_cover/surfacescover.jpeg"
-            />
-          </a>
-          <a href="projects/seating.html"
-            ><h2>Seating</h2>
-            <img
-              id="project_img"
-              src="images/projects/seating/seating_cover/seatingcover.jpeg"
-            />
-          </a>
-          <a href="projects/spaces.html"
-            ><h2>Spaces</h2>
-            <img
-              id="project_img"
-              src="images/projects/spaces/spaces_cover/spacescover.jpeg"
-          /></a>
-          <a href="projects/storage.html"
-            ><h2>Storage</h2>
-            <img
-              id="project_img"
-              src="images/projects/storage/storage_cover/storagecover.jpeg"
-            />
-          </a>
-          <a href="projects/fashion.html"
-            ><h2>Fashion</h2>
-            <img
-              id="project_img"
-              src="images/projects/fashion/fashion_cover/fashioncover.JPG"
-            />
-          </a>
-          <a href="projects/paintings.html"
-            ><h2>Paintings</h2>
-            <img
-              id="project_img"
-              src="images/projects/paintings/paintings_cover/paintings_cover.png"
-            />
-          </a>
+      <div id="project_container">
+        <div id="project_detail">
+          <div id="project_text">
+            <h2 id="content_title">The Decay of Western Civ</h2>
+            <p>
+              Gesso on canvas<br/>33 x 36 in
+            </p>
+            <p id="content_year">2023</p>
+          </div>
+          <div class="gallery-container">
+            <div class="thumbnails"></div>
+            <div class="slides">
+              <div>
+                <img
+                  src="../images/projects/paintings/decay.jpg"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="project_detail">
+          <div id="project_text">
+            <h2 id="content_title">Untitled 01</h2>
+            <p>
+              Gesso on canvas<br/>24 x 36.75 in
+            </p>
+            <p id="content_year">2023</p>
+          </div>
+          <div class="gallery-container">
+            <div class="thumbnails"></div>
+            <div class="slides">
+              <div>
+                <img src="../images/projects/paintings/untitled_01.jpg" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="project_detail">
+          <div id="project_text">
+            <h2 id="content_title">The Reticent Group of Chum</h2>
+            <p>
+              Gesso on canvas<br/>24 x 27 in 
+            </p>
+            <p id="content_year">2024</p>
+          </div>
+          <div class="gallery-container">
+            <div class="thumbnails"></div>
+            <div class="slides">
+              <div>
+                <img
+                  src="../images/projects/paintings/chum.jpg"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="project_detail">
+          <div id="project_text">
+            <h2 id="content_title">An Array of Appendages</h2>
+            <p>
+              Gesso on canvas<br/>29.25 x 30 in
+            </p>
+            <p id="content_year">2024</p>
+          </div>
+          <div class="gallery-container">
+            <div class="thumbnails"></div>
+            <div class="slides">
+              <div>
+                <img src="../images/projects/paintings/appendages.jpg" />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </body>
-  <!-- <script async>
+  <!-- <script>
     window.SnipcartSettings = {
       publicApiKey:
         "NGM4YzRjNGYtZjJjYS00NWMxLWI4ZDEtODNlZjg1MjJkMTM2NjM4MTMwNTkxNzE3NTUxNTMz",

@@ -11,74 +11,95 @@
       href="https://i.imgur.com/iKGK9WJ.png"
     />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link rel="stylesheet" href="css/main.css" />
-    <link rel="stylesheet" href="css/about.css" />
+    <link rel="stylesheet" href="../css/main.css" />
     <link rel="stylesheet" href="../css/redesign.css" />
     <link rel="stylesheet" href="../css/updates.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <script defer src="js/main.js"></script>
+    <script defer src="../js/main.js"></script>
+    <script defer src="../js/slider.js"></script>
   </head>
   <body>
     <div class="topnav">
-      <a href="index.html" class="active">
-        <img id="logo_mobile" src="images/Logo_mobile.png" />
-        <img id="logo" src="images/Logo_mobile.png" />
+      <a href="../index.html" class="active">
+        <img id="logo_mobile" src="../images/Logo_mobile.png" />
+        <img id="logo" src="../images/Logo_mobile.png" />
       </a>
       <div id="myLinks">
-        <a href="projects.html"><h4>Projects</h4></a>
-        <a href="cnc.html"><h4>CNC</h4></a>
-        <a id="active" style="opacity: 1"><h4>About</h4></a>
-        <a href="archive.html"><h4>Archive</h4></a>
-        <a href="contact.html"><h4>Contact</h4></a>
+        <a href="../projects.html"><h4>Projects</h4></a>
+        <a href="../cnc.html"><h4>CNC</h4></a>
+        <a href="../about.html"><h4>About</h4></a>
+        <a href="../archive.html"><h4>Archive</h4></a>
+        <a href="../contact.html"><h4>Contact</h4></a>
+        <!-- <a href="../store.html"><h4>Store</h4></a> -->
       </div>
       <a href="javascript:void(0);" class="icon" onclick="myFunction()">
         <i class="fa fa-bars"></i>
       </a>
     </div>
-    <div id="new_nav">
-      <div class="new_nav_1">
-        <a href="../index.html">
-          <img id="logo_mobile" src="../images/Logo_mobile.png" />
-          <img id="logo" src="../images/Logo_mobile.png" />
-        </a>
-        <div id="header_info">
-          Colin Cawthorne<br/>
-          West Los Angeles<br/>
-          colin@lagoffice.info<br/>
-          +1 (310) 883 4234<br/>
-        </div>
-      </div>
-      <div class="new_nav_2">
-          <a href="../projects.html">Works</a>
-          <a href="../cnc.html">Contact</a>
-          <a href="../about.html">CNC</a>
-          <a href="../projects.html">Instagram</a>
-          <a href="../cnc.html" id="current">About</a>
-          <a href="../about.html">Press</a>
-          <a href="../cnc.html">About</a>
-          <a href="../about.html">Paintings</a>
-      </div>
-      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-        <i class="fa fa-bars"></i>
-      </a>
-    </div>
+    <!-- <button class="snipcart-checkout" id="cart">
+      Shopping Cart ( <span class="snipcart-items-count"></span> )
+    </button>
+    <button class="snipcart-checkout" id="cart_mobile">
+      Cart ( <span class="snipcart-items-count"></span> )
+    </button> -->
     <div id="content">
-      <a id="arcade_link" target="_blank" href="https://monoskop.org/images/e/e4/Benjamin_Walter_The_Arcades_Project.pdf"><img id="arcade" src="images/arcade.png"></img></a>
-      <div id="about_container">
-        <!-- <img style="width:25%;" src="../images/social.png" /> -->
-        <p>
-          Colin Cawthorne is a multidisciplinary artist from West Los Angeles. Using his formal training as an architect, he deploys a rigor and curiosity to investigations in aesthetics, material, scale and function. His work is process driven, changes and mutates throughout its creation, and often still in progress. Mediums of interest are as follows: Painting, sculpture, furniture, architecture. Just following his graduation from Pratt in 2017, Colin worked for several fabrication studios. There he began to learn the tools and techniques of furniture making, and explored new methods of creation and experimentation. Since, he has started his own design practice, focusing on furniture and digital fabrication. The studio, LAG, is a testing ground for aesthetic exploration, contextualizing multiple discourses into art and object.
-        </p>
-        <br />
-        <br />
-        <br />
-        <br />
-        <p>Location<br />West Los Angeles, California.</p>
-        <br />
-        <p>Education<br />2017 - Pratt Institute BArch</p>
+      <div id="project_container">
+        <div id="project_detail">
+          <div id="project_text">
+            <h2 id="content_title">Plinth Bed</h2>
+            <p>
+              The client for this bed frame wanted drum-like objects supporting
+              the platform of a bed. We created this design, and had interior
+              ribs CNCd, to create a substructure. I then bent ¼ inch plywood
+              around the interior substructure.
+            </p>
+            <p id="content_year">2022</p>
+          </div>
+          <div class="gallery-container">
+            <div class="thumbnails"></div>
+            <div class="slides">
+              <div>
+                <img
+                  src="../images/projects/spaces/plinth_bed/plinth002.jpeg"
+                />
+              </div>
+              <div>
+                <img
+                  src="../images/projects/spaces/plinth_bed/plinth003.jpeg"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="project_detail">
+          <div id="project_text">
+            <h2 id="content_title">Cluster</h2>
+            <p>
+              Made for the apparel company Splits59. They needed affordable,
+              reconfigurable desks that could create clusters of co-work spaces,
+              with a single partition. Made from plywood, with black formica
+              laminated on the tops.
+            </p>
+            <p id="content_year">2022</p>
+          </div>
+          <div class="gallery-container">
+            <div class="thumbnails"></div>
+            <div class="slides">
+              <div>
+                <img src="../images/projects/spaces/cluster/cluster001.jpeg" />
+              </div>
+              <div>
+                <img src="../images/projects/spaces/cluster/cluster002.jpeg" />
+              </div>
+              <div>
+                <img src="../images/projects/spaces/cluster/cluster003.jpeg" />
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </body>

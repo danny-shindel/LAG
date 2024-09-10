@@ -29,8 +29,8 @@
   /* left: 0; */
   /* overflow: auto; */
   /* position: fixed; */
-  /* right: 0; */
-  /* top: 0; */
+  right: 50vw;
+  top: 65vh;
   visibility: visible;
   /* -webkit-overflow-scrolling: touch; */
 }

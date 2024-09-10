@@ -11,8 +11,9 @@
       href="https://i.imgur.com/iKGK9WJ.png"
     />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link rel="stylesheet" href="../css/redesign.css" />
-    <link rel="stylesheet" href="../css/updates.css" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="css/redesign.css" />
+    <link rel="stylesheet" href="css/updates.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -21,6 +22,25 @@
     <script defer src="../js/slider.js"></script>
   </head>
   <body>
+    <div class="topnav">
+      <a href="index.html" class="active">
+        <img id="logo_mobile" src="images/Logo_mobile.png" />
+        <img id="logo" src="images/Logo_mobile.png" />
+      </a>
+      <div id="myLinks">
+        <a href="work.html"><h4>Work</h4></a>
+        <a href="cnc.html"><h4>CNC</h4></a>
+        <a href="about.html"><h4>About</h4></a>
+        <a href="archive.html"><h4>Archive</h4></a>
+        <a href="contact.html"><h4>Contact</h4></a>
+        <a href="https://www.instagram.com/lag.office/"><h4>Instagram</h4></a>
+        <a href="press.html"><h4>Press</h4></a>
+        <a id="active" style="opacity: 1"><h4>Paintings</h4></a>
+      </div>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
     <div id="new_nav">
       <div class="new_nav_1">
         <a href="../index.html">
@@ -28,36 +48,21 @@
           <img id="logo" src="../images/Logo_mobile.png" />
         </a>
         <div id="header_info">
-          <p style="margin:0;">West Los Angeles, 90066</p>
-          <a href="mailto:colin@lagoffice.info">colin@lagoffice.info</a>
-          <a href="tel:3108834234">(310) 883 4234</a>
-          </div>
+          Colin Cawthorne<br/>
+          West Los Angeles<br/>
+          <a href="mailto:colin@lagoffice.info" style="text-decoration: none;">colin@lagoffice.info</a>
+          +1 (310) 936 4055<br/>
+        </div>
       </div>
       <div class="new_nav_2">
-          <a href="../projects.html">Works</a>
-          <a href="../cnc.html">Contact</a>
-          <a href="../about.html">CNC</a>
-          <a href="../projects.html">Instagram</a>
-          <a href="../cnc.html">About</a>
-          <a href="../about.html">Press</a>
-          <a href="../cnc.html">About</a>
-          <a href="../about.html">Paintings</a>
-      </div>
-      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-        <i class="fa fa-bars"></i>
-      </a>
-    </div>
-    <div class="topnav">
-      <a href="index.html" class="active">
-        <img id="logo_mobile" src="images/Logo_mobile.png" />
-        <img id="logo" src="images/Logo_mobile.png" />
-      </a>
-      <div id="myLinks">
-        <a id="active" style="opacity: 1"><h4>Projects</h4></a>
-        <a href="cnc.html"><h4>CNC</h4></a>
-        <a href="about.html"><h4>About</h4></a>
-        <a href="archive.html"><h4>Archive</h4></a>
-        <a href="contact.html"><h4>Contact</h4></a>
+        <a href="work.html">Work</a>
+        <a href="contact.html">Contact</a>
+        <a href="cnc.html">CNC</a>
+        <a href="https://www.instagram.com/lag.office/">Instagram</a>
+        <a href="about.html">About</a>
+        <a href="press.html">Press</a>
+        <a href="archive.html">Archive</a>
+        <a href="paintings.html" id="current">Paintings</a>
       </div>
       <a href="javascript:void(0);" class="icon" onclick="myFunction()">
         <i class="fa fa-bars"></i>
@@ -67,50 +72,72 @@
       <div id="project_container">
         <div id="project_detail">
           <div id="project_text">
-            <h2 id="content_title">Chore Coat</h2>
+            <h2 id="content_title">The Decay of Western Civ</h2>
             <p>
-              Thought of to be the LAG working uniform. I took a vintage french
-              chore coat, and embroidered the LAG logo on the left chest. Also
-              stamped the LAG logo just right of center on the back of the coat.
+              Gesso on canvas<br/>33 x 36 in
             </p>
-            <p id="content_year">2021</p>
+            <p id="content_year">2023</p>
           </div>
           <div class="gallery-container">
             <div class="thumbnails"></div>
             <div class="slides">
-              <!-- <div>
-                <img src="../images/projects/fashion/chore_coat/chore001.JPG" />
-              </div>
               <div>
-                <img src="../images/projects/fashion/chore_coat/chore002.JPG" />
-              </div> -->
-              <div>
-                <img src="../images/projects/fashion/chore_coat/chore003.JPG" />
+                <img
+                  src="../images/projects/paintings/decay.jpg"
+                />
               </div>
             </div>
           </div>
         </div>
         <div id="project_detail">
           <div id="project_text">
-            <h2 id="content_title">Chore Coat</h2>
+            <h2 id="content_title">Untitled 01</h2>
             <p>
-              Thought of to be the LAG working uniform. I took a vintage french
-              chore coat, and embroidered the LAG logo on the left chest. Also
-              stamped the LAG logo just right of center on the back of the coat.
+              Gesso on canvas<br/>24 x 36.75 in
             </p>
-            <p id="content_year">2021</p>
+            <p id="content_year">2023</p>
           </div>
           <div class="gallery-container">
             <div class="thumbnails"></div>
             <div class="slides">
-              <!-- <div>
-                <img src="../images/projects/fashion/chore_coat/chore001.JPG" />
+              <div>
+                <img src="../images/projects/paintings/untitled_01.jpg" />
               </div>
+            </div>
+          </div>
+        </div>
+        <div id="project_detail">
+          <div id="project_text">
+            <h2 id="content_title">The Reticent Group of Chum</h2>
+            <p>
+              Gesso on canvas<br/>24 x 27 in 
+            </p>
+            <p id="content_year">2024</p>
+          </div>
+          <div class="gallery-container">
+            <div class="thumbnails"></div>
+            <div class="slides">
               <div>
-                <img src="../images/projects/fashion/chore_coat/chore002.JPG" />
-              </div> -->
+                <img
+                  src="../images/projects/paintings/chum.jpg"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="project_detail">
+          <div id="project_text">
+            <h2 id="content_title">An Array of Appendages</h2>
+            <p>
+              Gesso on canvas<br/>29.25 x 30 in
+            </p>
+            <p id="content_year">2024</p>
+          </div>
+          <div class="gallery-container">
+            <div class="thumbnails"></div>
+            <div class="slides">
               <div>
-                <img src="../images/projects/fashion/chore_coat/chore003.JPG" />
+                <img src="../images/projects/paintings/appendages.jpg" />
               </div>
             </div>
           </div>

@@ -13,6 +13,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/contact.css" />
+    <link rel="stylesheet" href="css/redesign.css" />
+    <link rel="stylesheet" href="css/updates.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -26,23 +28,46 @@
         <img id="logo" src="images/Logo_mobile.png" />
       </a>
       <div id="myLinks">
-        <a href="projects.html"><h4>Projects</h4></a>
+        <a href="work.html"><h4>Work</h4></a>
         <a href="cnc.html"><h4>CNC</h4></a>
         <a href="about.html"><h4>About</h4></a>
         <a href="archive.html"><h4>Archive</h4></a>
         <a id="active" style="opacity: 1"><h4>Contact</h4></a>
-        <!-- <a href="store.html"><h4>Store</h4></a> -->
+        <a href="https://www.instagram.com/lag.office/"><h4>Instagram</h4></a>
+        <a href="press.html"><h4>Press</h4></a>
+        <a href="paintings.html"><h4>Paintings</h4></a>
       </div>
       <a href="javascript:void(0);" class="icon" onclick="myFunction()">
         <i class="fa fa-bars"></i>
       </a>
     </div>
-    <!-- <button class="snipcart-checkout" id="cart">
-      Shopping Cart ( <span class="snipcart-items-count"></span> )
-    </button>
-    <button class="snipcart-checkout" id="cart_mobile">
-      Cart ( <span class="snipcart-items-count"></span> )
-    </button> -->
+    <div id="new_nav">
+      <div class="new_nav_1">
+        <a href="../index.html">
+          <img id="logo_mobile" src="../images/Logo_mobile.png" />
+          <img id="logo" src="../images/Logo_mobile.png" />
+        </a>
+        <div id="header_info">
+          Colin Cawthorne<br/>
+          West Los Angeles<br/>
+          <a href="mailto:colin@lagoffice.info" style="text-decoration: none;">colin@lagoffice.info</a>
+          +1 (310) 936 4055<br/>
+        </div>
+      </div>
+      <div class="new_nav_2">
+        <a href="work.html">Work</a>
+        <a href="contact.html" id="current">Contact</a>
+        <a href="cnc.html">CNC</a>
+        <a href="https://www.instagram.com/lag.office/">Instagram</a>
+        <a href="about.html">About</a>
+        <a href="press.html">Press</a>
+        <a href="archive.html">Archive</a>
+        <a href="paintings.html">Paintings</a>
+      </div>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
     <div id="content">
       <div id="contact_container">
         <div id="contact_text">
@@ -82,113 +107,4 @@
     </div>
     <script src="https://kwesforms.com/v2/kwes-script.js" defer></script>
   </body>
-  <!-- <script async>
-    window.SnipcartSettings = {
-      publicApiKey:
-        "NGM4YzRjNGYtZjJjYS00NWMxLWI4ZDEtODNlZjg1MjJkMTM2NjM4MTMwNTkxNzE3NTUxNTMz",
-      loadStrategy: "on-user-interaction",
-      modalStyle: "side",
-    };
-
-    (function () {
-      var c, d;
-      (d = (c = window.SnipcartSettings).version) != null ||
-        (c.version = "3.0");
-      var s, S;
-      (S = (s = window.SnipcartSettings).timeoutDuration) != null ||
-        (s.timeoutDuration = 2750);
-      var l, p;
-      (p = (l = window.SnipcartSettings).domain) != null ||
-        (l.domain = "cdn.snipcart.com");
-      var w, u;
-      (u = (w = window.SnipcartSettings).protocol) != null ||
-        (w.protocol = "https");
-      var m, g;
-      (g = (m = window.SnipcartSettings).loadCSS) != null || (m.loadCSS = !0);
-      var y =
-          window.SnipcartSettings.version.includes("v3.0.0-ci") ||
-          (window.SnipcartSettings.version != "3.0" &&
-            window.SnipcartSettings.version.localeCompare("3.4.0", void 0, {
-              numeric: !0,
-              sensitivity: "base",
-            }) === -1),
-        f = ["focus", "mouseover", "touchmove", "scroll", "keydown"];
-      window.LoadSnipcart = o;
-      document.readyState === "loading"
-        ? document.addEventListener("DOMContentLoaded", r)
-        : r();
-      function r() {
-        window.SnipcartSettings.loadStrategy
-          ? window.SnipcartSettings.loadStrategy === "on-user-interaction" &&
-            (f.forEach(function (t) {
-              return document.addEventListener(t, o);
-            }),
-            setTimeout(o, window.SnipcartSettings.timeoutDuration))
-          : o();
-      }
-      var a = !1;
-      function o() {
-        if (a) return;
-        a = !0;
-        let t = document.getElementsByTagName("head")[0],
-          n = document.querySelector("#snipcart"),
-          i = document.querySelector(
-            'src[src^="'
-              .concat(window.SnipcartSettings.protocol, "://")
-              .concat(window.SnipcartSettings.domain, '"][src$="snipcart.js"]')
-          ),
-          e = document.querySelector(
-            'link[href^="'
-              .concat(window.SnipcartSettings.protocol, "://")
-              .concat(
-                window.SnipcartSettings.domain,
-                '"][href$="snipcart.css"]'
-              )
-          );
-        n ||
-          ((n = document.createElement("div")),
-          (n.id = "snipcart"),
-          n.setAttribute("hidden", "true"),
-          document.body.appendChild(n)),
-          h(n),
-          i ||
-            ((i = document.createElement("script")),
-            (i.src = ""
-              .concat(window.SnipcartSettings.protocol, "://")
-              .concat(window.SnipcartSettings.domain, "/themes/v")
-              .concat(window.SnipcartSettings.version, "/default/snipcart.js")),
-            (i.async = !0),
-            t.appendChild(i)),
-          !e &&
-            window.SnipcartSettings.loadCSS &&
-            ((e = document.createElement("link")),
-            (e.rel = "stylesheet"),
-            (e.type = "text/css"),
-            (e.href = ""
-              .concat(window.SnipcartSettings.protocol, "://")
-              .concat(window.SnipcartSettings.domain, "/themes/v")
-              .concat(
-                window.SnipcartSettings.version,
-                "/default/snipcart.css"
-              )),
-            t.prepend(e)),
-          f.forEach(function (v) {
-            return document.removeEventListener(v, o);
-          });
-      }
-      function h(t) {
-        !y ||
-          ((t.dataset.apiKey = window.SnipcartSettings.publicApiKey),
-          window.SnipcartSettings.addProductBehavior &&
-            (t.dataset.configAddProductBehavior =
-              window.SnipcartSettings.addProductBehavior),
-          window.SnipcartSettings.modalStyle &&
-            (t.dataset.configModalStyle = window.SnipcartSettings.modalStyle),
-          window.SnipcartSettings.currency &&
-            (t.dataset.currency = window.SnipcartSettings.currency),
-          window.SnipcartSettings.templatesUrl &&
-            (t.dataset.templatesUrl = window.SnipcartSettings.templatesUrl));
-      }
-    })();
-  </script> -->
 </html>
